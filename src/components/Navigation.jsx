@@ -1,23 +1,45 @@
 import React from "react";
-import logo from '../logo.png';
-import './navigation.css'
+import logo from "../assets/logo.png";
+import "./navigation.css";
+import { RxDropdownMenu } from "react-icons/rx";
 
 const Navigation = () => {
   return (
     <nav>
-      
-      <div>
-        <img src={logo} alt="" className="logo" />
+      <img src={logo} alt="" className="nav__logo" />
+
+      <div className="drop__down">
+        <button className="drop__btn">
+          <RxDropdownMenu size={50} />
+        </button>
+        <div className="dropdown__content">
+          <a href="/">Link 1</a>
+          <a href="/">Link 2</a>
+          <a href="/">Link 3</a>
+        </div>
       </div>
 
-      <div class="buttons">
-        <a href="#">Button 1</a>
-        <a href="#">Button 2</a>
-        <a href="#">Button 3</a>
-        <a href="#">Button 4</a>
+      <div className="nav__buttons">
+        <ul>
+          <li>
+            <a href="/">Украса</a>
+          </li>
+          <li>
+            <a href="/">Покани за гости</a>
+          </li>
+          <li>
+            <a href="/">Подаръци за гости</a>
+          </li>
+          <li>
+            <a href="/">Кетъринг</a>
+          </li>
+          <li>
+            <a href="/">За нас</a>
+          </li>
+        </ul>
       </div>
-      <div class="buttons right-button">
-        <a href="#">Button 5</a>
+      <div className="nav__buttons right-button">
+        <a href="/">Контакти</a>
       </div>
     </nav>
   );

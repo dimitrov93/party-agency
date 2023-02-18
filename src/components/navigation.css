@@ -1,26 +1,129 @@
-  /* Navigation bar styles */
   nav {
     display: flex;
-    justify-content:space-evenly;
-    height: 5rem;
-    border-bottom: 1px solid red;
-    color: aqua;
+    justify-content: space-around;
+    height: 7rem;
+    border-bottom: 1px solid #d0a977;
     align-items: center;
-
+    position: static;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    font-weight: 500;
   }
 
-  nav .buttons a {
-    color: black;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    margin-right: 10px;
+  .nav__buttons ul {
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
   }
 
-  .logo {
-    height: 75px;
+  .nav__buttons a {
+    color: #d0a977;
+    padding: 1rem 1rem;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+
+  .nav__logo {
+    width: 190px;
   }
 
   nav a:hover {
-    background-color: #555;
+    background-color: #846236;
+    ;
+  }
+
+  .nav__buttons.right-button {
+    margin-right: 10rem;
+  }
+
+  .drop__down {
+    position: relative;
+    display: inline-block;
+    margin-right: 50px;
+  }
+
+  .drop__btn {
+    background-color: transparent;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    display: none;
+  }
+
+
+  .dropdown__content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 130px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .dropdown__content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown__content a:hover {
+    background-color: #f1f1f1
+  }
+
+  .dropdown:hover .dropdown__content {
+    display: block;
+  }
+
+  .dropdown:hover .drop__btn {
+    background-color: transparent;
+  }
+
+  /* ========== MEDIA QUERIES (MEDIUM DEVICES)  ========== */
+
+  @media screen and (max-width: 1024px) {
+
+    .nav__buttons a {
+      padding: 0.5rem;
+      font-size: 16px;
+    }
+
+    .nav__logo {
+      margin-left: 6rem;
+      width: 150px;
+    }
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .dropbtn {
+      display: block;
+      /* Show the button */
+    }
+
+    .nav__buttons {
+      display: none;
+      /* Hide the navigation menu */
+    }
+
+    .dropdown-menu {
+      display: block;
+      /* Show the dropdown menu */
+    }
+
+    .nav__logo {
+      width: 150px;
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+
+    .nav__logo {
+      width: 100px;
+    }
   }
