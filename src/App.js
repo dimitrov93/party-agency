@@ -1,9 +1,10 @@
 import logo from './logo.jpg';
 import './App.css';
+import Navigation from './components/Navigation';
 
 function App() {
   return (
-        <img src={logo} className="App-logo" alt="logo" />
+        <Navigation />
   );
 }
 
