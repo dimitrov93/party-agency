@@ -76,11 +76,11 @@
     background-color: #f1f1f1
   }
 
-  .dropdown:hover .dropdown__content {
+  .drop__down:hover .dropdown__content {
     display: block;
   }
 
-  .dropdown:hover .drop__btn {
+  .drop__down:hover .drop__btn {
     background-color: transparent;
   }
 
@@ -101,7 +101,7 @@
 
 
   @media screen and (max-width: 768px) {
-    .dropbtn {
+    .drop__btn {
       display: block;
       /* Show the button */
     }
@@ -109,11 +109,6 @@
     .nav__buttons {
       display: none;
       /* Hide the navigation menu */
-    }
-
-    .dropdown-menu {
-      display: block;
-      /* Show the dropdown menu */
     }
 
     .nav__logo {
