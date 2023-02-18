@@ -24,11 +24,8 @@ a {
 
 /* Set default font and background color */
 body {
-  font-family: sans-serif;
   min-height: 100vh;
-
   background: url('./assets/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  
 }

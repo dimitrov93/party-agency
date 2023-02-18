@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
   nav {
     display: flex;
     justify-content: space-around;
@@ -10,6 +12,12 @@
     z-index: 100;
     width: 100%;
     font-weight: 500;
+  }
+
+  a {
+    text-transform: uppercase;
+    font-family: 'Neucha', cursive;
+
   }
 
   .nav__buttons ul {
@@ -25,18 +33,17 @@
     font-size: 20px;
   }
 
-
   .nav__logo {
     width: 190px;
   }
 
   nav a:hover {
     background-color: #846236;
-    ;
   }
 
   .nav__buttons.right-button {
     margin-right: 10rem;
+
   }
 
   .drop__down {
@@ -117,6 +124,10 @@
   }
 
   @media screen and (max-width: 360px) {
+
+    nav {
+      justify-content: space-evenly;
+    }
 
     .nav__logo {
       width: 100px;
