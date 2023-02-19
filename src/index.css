@@ -1,3 +1,8 @@
+:root {
+  --clr-brown: #d0a977;
+  --clr-ligter-brown: #e3c7a2;
+}
+
 /* Box sizing border-box by default */
 * {
   box-sizing: border-box;

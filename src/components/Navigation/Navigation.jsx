@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 import "./navigation.css";
 import { RxDropdownMenu } from "react-icons/rx";
 
@@ -21,6 +21,9 @@ const Navigation = () => {
 
       <div className="nav__buttons">
         <ul>
+        <li>
+            <a href="/">Начало</a>
+          </li>
           <li>
             <a href="/">Украса</a>
           </li>
@@ -32,9 +35,6 @@ const Navigation = () => {
           </li>
           <li>
             <a href="/">Кетъринг</a>
-          </li>
-          <li>
-            <a href="/">За нас</a>
           </li>
         </ul>
       </div>
