@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../assets/logo.png";
 import "./navigation.css";
 import { RxDropdownMenu } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   return (
@@ -13,33 +14,37 @@ const Navigation = () => {
           <RxDropdownMenu size={50} />
         </button>
         <div className="dropdown__content">
-          <a href="/">Link 1</a>
-          <a href="/">Link 2</a>
-          <a href="/">Link 3</a>
+          <Link to="/">Link 1</Link>
+          <Link to="/">Link 2</Link>
+          <Link to="/">Link 3</Link>
         </div>
       </div>
 
       <div className="nav__buttons">
         <ul>
-        <li>
-            <a href="/">Начало</a>
+          <li>
+            <Link to={"/"}>Начало</Link>
           </li>
           <li>
-            <a href="/">Украса</a>
+            <Link to="/">Украса</Link>
           </li>
           <li>
-            <a href="/">Покани за гости</a>
+            <Link to="/">Покани за гости</Link>
           </li>
           <li>
-            <a href="/">Подаръци за гости</a>
+            <Link to="/">Подаръци за гости</Link>
           </li>
           <li>
-            <a href="/">Кетъринг</a>
+            <Link to="/">Кетъринг</Link>
           </li>
         </ul>
       </div>
       <div className="nav__buttons right-button">
-        <a href="/">Контакти</a>
+        <ul>
+          <li>
+            <Link to={"/contacts"}>Контакти</Link>
+          </li>
+        </ul>
       </div>
     </nav>
   );

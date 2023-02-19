@@ -4,22 +4,14 @@ h1 {
 
 h2,h3 {
     font-family: 'Marck Script', cursive;
+    text-align: center;
+
 }
 
 .home__title {
     text-align: center;
-    font-size: 5rem;
     color: var(--clr-brown);
     text-shadow: 2px 4px 2px rgba(0,0,0,0.6);
-
-}
-
-.container {
-    max-width: 1260px;
-    background-color: transparent;
-    margin: 0 auto;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
 }
 
 .container .article {
@@ -32,12 +24,15 @@ h2,h3 {
     flex-direction: row;
 }
 
+.article__left h2  {
+    text-align: center;
+}
+
 .article__left:nth-last-child(1) {
     margin-left: 100px;
 }
 
 .article__left:nth-last-child(1) h3 {
-    font-size: 2rem;
     font-weight: 200;
     font-family: 'Marck Script', cursive;
 }
@@ -61,14 +56,11 @@ h2,h3 {
 }
 
 .article__header h2 {
-    font-size: 5rem;
     font-weight: 200;
 }
 
 .article__header h3 {
-    font-size: 3rem;
     font-weight: 100;
-
 }
 
 .article__right {
