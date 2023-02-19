@@ -133,3 +133,47 @@ h2,h3 {
       transform: translateY(0);
     }
   }
+
+  /* ========== MEDIA QUERIES (MEDIUM DEVICES)  ========== */
+
+@media screen and (max-width: 1024px) {
+
+    .home__title {
+        font-size: 3.5rem;
+    }
+
+    .article__header h2 {
+        font-size: 3rem;
+      }
+      
+    .article__header h3 {
+        font-size: 2rem;
+      }
+    .article__logo {
+        height: 90%;
+        max-width: 30%;
+    }
+ 
+}
+
+/* ========== MEDIA QUERIES (SMALL DEVICES)  ========== */
+
+@media screen and (max-width: 600px) {
+
+    .home__title {
+        font-size: 2.5rem;
+    }
+
+    .article__header h2 {
+        font-size: 2.5rem;
+      }
+      
+    .article__header h3 {
+        font-size: 1.5rem;
+      }
+    .article__logo {
+        height: 90%;
+        max-width: 50%;
+    }
+
+}
