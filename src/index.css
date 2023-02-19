@@ -1,6 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+
+
 :root {
   --clr-brown: #d0a977;
   --clr-ligter-brown: #e3c7a2;
+
+  --trans: all 400ms ease
 }
 
 /* Box sizing border-box by default */

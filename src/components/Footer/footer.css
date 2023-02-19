@@ -7,6 +7,7 @@ footer {
 
 footer a {
     color: var(--clr-brown);
+    font-size: 1rem;
 }
 
 .permalinks {
@@ -32,6 +33,7 @@ footer a {
     border-radius: 0.7rem;
     display: flex;
     border: 1px solid transparent;
+    font-size: 2rem;
 }
 
 
