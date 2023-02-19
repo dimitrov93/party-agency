@@ -7,17 +7,19 @@ import { Link } from "react-router-dom";
 const Navigation = () => {
   return (
     <nav>
-      <Link to={'/'}>
-      <img src={logo} alt="" className="nav__logo" />
+      <Link to={"/"}>
+        <img src={logo} alt="" className="nav__logo" />
       </Link>
       <div className="drop__down">
         <button className="drop__btn">
           <RxDropdownMenu size={50} />
         </button>
         <div className="dropdown__content">
-          <Link to="/">Link 1</Link>
-          <Link to="/">Link 2</Link>
-          <Link to="/">Link 3</Link>
+          <Link to="/">Украса</Link>
+          <Link to="/">Покани за гости</Link>
+          <Link to="/">Подаръци за гости</Link>
+          <Link to="/">Кетъринг</Link>
+          <Link to="/contacts">Контакти</Link>
         </div>
       </div>
 
