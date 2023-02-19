@@ -7,8 +7,9 @@ import { Link } from "react-router-dom";
 const Navigation = () => {
   return (
     <nav>
+      <Link to={'/'}>
       <img src={logo} alt="" className="nav__logo" />
-
+      </Link>
       <div className="drop__down">
         <button className="drop__btn">
           <RxDropdownMenu size={50} />
