@@ -1,4 +1,4 @@
-.contacts__header { 
+.contacts__header {
     display: flex;
     flex-direction: row;
 }
@@ -32,7 +32,8 @@ form {
     width: 100%;
 }
 
-input, textarea {
+input,
+textarea {
     border: 2px solid black;
     border-radius: 0.5rem;
     padding: 1.5rem;
@@ -91,5 +92,74 @@ textarea {
 .instagram {
     color: #fff;
     background: #d6249f;
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+
+/* ========== MEDIA QUERIES (MEDIUM DEVICES)  ========== */
+
+@media screen and (max-width: 1024px) {
+
+        .contacts__title {
+        font-size: 42px;
+    }
+
+    .contacts__information p  {
+        font-size: 35px;
+        padding: 1.4rem;
+
+    }
+    .contacts__header img {
+        height: 90%;
+        width: 100%;
+        max-width: 50%;
+    }
+
+ 
+
+}
+
+/* ========== MEDIA QUERIES (SMALL DEVICES)  ========== */
+
+@media screen and (max-width: 600px) {
+
+    .contacts__title {
+        font-size: 22px;
+    }
+
+    .contacts__information p  {
+        font-size: 15px;
+        padding: 0.5rem;
+
+    }
+    .contacts__header img {
+        height: 90%;
+        width: 100%;
+        max-width: 50%;
+    }
+
+    .contacts__email h3 {
+        font-size: 2rem;
+    }
+
+    input,
+    textarea {
+    padding: 0.5rem;
+    }
+
+    
+    .input__big {
+        width: 390px;
+    }
+    
+    
+    textarea {
+        width: 390px;
+    }
+
+    .file {
+        padding: 0.5rem;
+        width: 390px;
+    }
+    
 }

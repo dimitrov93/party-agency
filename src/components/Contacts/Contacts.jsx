@@ -79,12 +79,7 @@ const Contacts = () => {
               <label htmlFor="file">Прикачете файл</label>
               <input type="file" name="file" required className="file__btn"></input>
             </div>
-
-
             </div>
-
-
-
             <button type="submit" className='btn btn-primary'>Send Message</button>
         </form>
       </div>
