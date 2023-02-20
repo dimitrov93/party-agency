@@ -13,7 +13,7 @@ const Contacts = () => {
           <h2 className="contacts__title">Свържете се с нас на</h2>
           <p>Обадете ни се на: +359 889 245 051 </p>
           <p>Пишете ни: stefanytomova@gmail.com </p>
-          <p>Присъединете се към нас: 
+          <p>Присъединете се: 
           <a href="https://facebook.com">
             <FaFacebookF color="#3b5998" />{" "}
           </a>

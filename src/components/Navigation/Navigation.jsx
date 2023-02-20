@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo4.png";
 import "./navigation.css";
 import { RxDropdownMenu } from "react-icons/rx";
 import { Link } from "react-router-dom";
