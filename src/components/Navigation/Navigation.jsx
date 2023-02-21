@@ -15,7 +15,7 @@ const Navigation = () => {
           <RxDropdownMenu size={50} />
         </button>
         <div className="dropdown__content">
-          <Link to="/">Украса</Link>
+          <Link to="/decoration">Украса</Link>
           <Link to="/">Покани за гости</Link>
           <Link to="/">Подаръци за гости</Link>
           <Link to="/">Кетъринг</Link>
@@ -29,7 +29,7 @@ const Navigation = () => {
             <Link to={"/"}>Начало</Link>
           </li>
           <li>
-            <Link to="/">Украса</Link>
+            <Link to="/decoration">Украса</Link>
           </li>
           <li>
             <Link to="/">Покани за гости</Link>
