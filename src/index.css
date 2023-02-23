@@ -94,3 +94,17 @@ body {
   color: var(--color-bg);
   border-color: transparent;
 }
+
+.green__btn {
+  padding: 1rem 4rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: #a4e7c9;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.green__btn:hover {
+  background-color: #4c4c4c;
+}
