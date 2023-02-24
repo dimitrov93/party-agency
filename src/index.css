@@ -169,6 +169,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(10px);
+
 }
 
 .fullscreen__img img {
@@ -180,4 +182,20 @@ body {
   user-select: none;
 }
 
+
+
 /* Opening on IMAGE FULL-SCREEN END */
+
+
+.static {
+  max-width: 100%;
+  border-radius: 40px;
+}
+
+.static:hover {
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.23); 
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.23);
+  transform: scale(1.02);
+  transition: var(--trans);
+  cursor: pointer;
+}
