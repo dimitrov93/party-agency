@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./birthday.css";
 import BGallery from "./Gallery/BGallery";
+import img1 from "../../../assets/bd/1.jpg";
 import img2 from "../../../assets/bd/2.jpg";
 import img3 from "../../../assets/bd/3.jpg";
 import img4 from "../../../assets/bd/4.jpg";
@@ -14,8 +15,16 @@ import img11 from "../../../assets/bd2/1.jpg";
 import img22 from "../../../assets/bd2/2.jpg";
 import img33 from "../../../assets/bd2/3.jpg";
 
+import img111 from "../../../assets/bd3/1.jpg";
+import img222 from "../../../assets/bd3/2.jpg";
+import img333 from "../../../assets/bd3/3.jpg";
+import img444 from "../../../assets/bd3/4.jpg";
+
 const Birthday = () => {
   const galleryImg = [
+    {
+      img: img1,
+    },
     {
       img: img2,
     },
@@ -48,6 +57,21 @@ const Birthday = () => {
     },
   ];
 
+  const galleryImg3 = [
+    {
+      img: img111,
+    },
+    {
+      img: img222,
+    },
+    {
+      img: img333,
+    },
+    {
+      img: img444,
+    },
+  ];
+
   return (
     <div className="container">
       <h3>ИЗБЕРЕТЕ ОТ НАШИ ГОТОВИ ВИЗИИ</h3>
@@ -64,6 +88,11 @@ const Birthday = () => {
         <div className="birthday__gallery">
           <BGallery galleryImg={galleryImg2} />
         </div>
+
+        <div className="birthday__gallery">
+          <BGallery galleryImg={galleryImg3} />
+        </div>
+
       </div>
     </div>
   );

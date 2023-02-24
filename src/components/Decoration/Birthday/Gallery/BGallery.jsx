@@ -32,9 +32,12 @@ const BGallery = ({ galleryImg }) => {
   };
 
   useEffect(() => {
-    timerRef.current = setTimeout(() => {
-      nextSlide()
-    }, 4000);
+    if (openModal) {
+      timerRef.current = setTimeout(() => {
+        nextSlide()
+      }, 4000);
+  
+    }
 
     return () => clearTimeout(timerRef.current)
   })
@@ -68,15 +71,15 @@ const BGallery = ({ galleryImg }) => {
       )}
       
       <div className="gallery__wrap">
-      <img src={galleryImg[staticPic].img} alt="" className="static" />
-        {galleryImg &&
+      <img src={galleryImg[0].img} alt="" className="static" onClick={() => {handleOpenModal(0)}}  />
+        {/* {galleryImg &&
           galleryImg.map((slide, index) => {
             return (
               <div className="single" key={index} onClick={() => {handleOpenModal(index); increaseStaticPic(index)}}>
-                <img src={slide.img} alt="" />
+
               </div>
             );
-          })}
+          })} */}
       </div>
     </div>
   );
