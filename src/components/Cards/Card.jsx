@@ -94,10 +94,10 @@ const Card = () => {
 
   return (
     <section className="container">
-      <div class="card__header">
-        <div class="line"></div>
-        <div class="text">Покани за гости, картички, настанително табло</div>
-        <div class="line"></div>
+      <div className="card__header">
+        <div className="line"></div>
+        <div className="text">Покани за гости, картички, настанително табло</div>
+        <div className="line"></div>
       </div>
 
       <div className="card__body">

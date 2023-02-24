@@ -11,7 +11,6 @@ import img7 from "../../assets/Catering/7.jpg";
 import img8 from "../../assets/Catering/8.jpg";
 import img9 from "../../assets/Catering/9.jpg";
 import img10 from "../../assets/Catering/10.jpg";
-import img11 from "../../assets/Catering/11.jpg";
 import CGallery from "./CateringGallery/CGallery";
 
 const Catering = () => {
