@@ -1,19 +1,21 @@
-.gallery__wrap {
+.catering__images {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
+    gap: 22px;
+    margin-top: 40px;
     justify-content: center;
-    max-width: 460px;
-    margin-top: 45px;
+    align-items: center;
 }
 
-.static {
-    max-width: 100%;
+.catering__images img {
+    max-width: 16%;
+    aspect-ratio: 1/1;
+}
+
+.img__focus {
     border-radius: 40px;
 }
-
-.static:hover {
+.img__focus:hover {
     -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.23); 
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.23);
     transform: scale(1.02);

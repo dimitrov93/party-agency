@@ -1,8 +1,8 @@
 import React from 'react'
 import './decoration.css'
 import img from '../../assets/logo4.png'
-import img2 from '../../assets/logo2.png'
-import img3 from '../../assets/logo3.png'
+import img2 from '../../assets/logo5.png'
+import img3 from '../../assets/logo6.png'
 import {Link} from 'react-router-dom'
 
 const Decoration = () => {

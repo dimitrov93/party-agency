@@ -8,7 +8,7 @@ const BapGallery = ({ pics }) => {
       <div className="main__image">
         <img
           src="https://i.pinimg.com/originals/c0/b1/ba/c0b1ba4ded1dbd237dbcd7fd72e3fcba.jpg"
-          alt="Big Image"
+          alt="big one"
         />
       </div>
       <div className="scrollable__images">

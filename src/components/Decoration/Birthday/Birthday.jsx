@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./birthday.css";
 import BGallery from "./Gallery/BGallery";
 import img1 from "../../../assets/bd/1.jpg";
@@ -99,47 +98,3 @@ const Birthday = () => {
 };
 
 export default Birthday;
-
-{
-  /* <div className="birthday__gallery">
-<div className="birthday__gallery_container">
-  <h3>Рожден ден - Денис</h3>
-  <p>
-    Oписание:{" "}
-    <span>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-      Laborum, nulla.
-    </span>{" "}
-  </p>
-
-  <hr />
-  <p>За цена, моля свържете се с нас</p>
-  <Link to={"/contacts"} className="green__btn ctn">
-    Контакти
-  </Link>
-</div>
-
-<BGallery galleryImg={galleryImg} />
-</div>
-
-<div className="birthday__gallery">
-<div className="birthday__gallery_container">
-  <h3>Рожден ден - Денис</h3>
-  <p>
-    Oписание:{" "}
-    <span>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-      Laborum, nulla.
-    </span>{" "}
-  </p>
-
-  <hr />
-  <p>За цена, моля свържете се с нас</p>
-  <Link to={"/contacts"} className="green__btn ctn">
-    Контакти
-  </Link>
-</div>
-
-<BGallery galleryImg={galleryImg} />
-</div> */
-}

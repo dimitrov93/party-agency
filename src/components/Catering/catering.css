@@ -1,0 +1,22 @@
+.catering {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.catering__img {
+    width: 50%;
+    aspect-ratio: 1/1;
+    text-align: center;
+}
+
+.catering img {
+    max-width: 70%;
+    border-radius: 2rem;
+}
+
+.catering__information {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 50%;
+}

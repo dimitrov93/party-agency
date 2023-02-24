@@ -18,7 +18,7 @@ const Navigation = () => {
           <Link to="/decoration">Украса</Link>
           <Link to="/">Покани за гости</Link>
           <Link to="/">Подаръци за гости</Link>
-          <Link to="/">Кетъринг</Link>
+          <Link to="/catering">Кетъринг</Link>
           <Link to="/contacts">Контакти</Link>
         </div>
       </div>
@@ -38,7 +38,7 @@ const Navigation = () => {
             <Link to="/">Подаръци за гости</Link>
           </li>
           <li>
-            <Link to="/">Кетъринг</Link>
+          <Link to="/catering">Кетъринг</Link>
           </li>
         </ul>
       </div>

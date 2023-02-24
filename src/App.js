@@ -6,15 +6,20 @@ import Contacts from "./components/Contacts/Contacts";
 import Decoration from "./components/Decoration/Decoration";
 import Birthday from "./components/Decoration/Birthday/Birthday";
 import Baptism from "./components/Decoration/Baptism/Baptism";
+import Catering from "./components/Catering/Catering";
 
 function App() {
   return (
     <>
+    
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         
         <Route path="/contacts" element={<Contacts />}></Route>
+        <Route path="/catering" element={<Catering />}></Route>
+
+
         <Route path="/decoration" element={<Decoration />}></Route>
         <Route path="/decoration/bday" element={<Birthday />}></Route>
         <Route path="/decoration/baptism" element={<Baptism />}></Route>
