@@ -16,7 +16,7 @@ const Navigation = () => {
         </button>
         <div className="dropdown__content">
           <Link to="/decoration">Украса</Link>
-          <Link to="/">Покани за гости</Link>
+          <Link to="/cards">Покани за гости</Link>
           <Link to="/">Подаръци за гости</Link>
           <Link to="/catering">Кетъринг</Link>
           <Link to="/contacts">Контакти</Link>
@@ -32,7 +32,7 @@ const Navigation = () => {
             <Link to="/decoration">Украса</Link>
           </li>
           <li>
-            <Link to="/">Покани за гости</Link>
+            <Link to="/cards">Покани за гости</Link>
           </li>
           <li>
             <Link to="/">Подаръци за гости</Link>

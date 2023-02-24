@@ -7,6 +7,7 @@ import Decoration from "./components/Decoration/Decoration";
 import Birthday from "./components/Decoration/Birthday/Birthday";
 import Baptism from "./components/Decoration/Baptism/Baptism";
 import Catering from "./components/Catering/Catering";
+import Card from "./components/Cards/Card";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         
         <Route path="/contacts" element={<Contacts />}></Route>
         <Route path="/catering" element={<Catering />}></Route>
+        <Route path="/cards" element={<Card />}></Route>
 
 
         <Route path="/decoration" element={<Decoration />}></Route>

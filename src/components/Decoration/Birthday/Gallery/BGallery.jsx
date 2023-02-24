@@ -34,7 +34,7 @@ const BGallery = ({ galleryImg }) => {
     if (openModal) {
       timerRef.current = setTimeout(() => {
         nextSlide();
-      }, 4000);
+      }, 2000);
     }
 
     return () => clearTimeout(timerRef.current);

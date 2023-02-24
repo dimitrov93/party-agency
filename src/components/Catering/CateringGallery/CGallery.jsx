@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./cgallery.css";
 import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const CGallery = ({ gallery }) => {
+  const timerRef = useRef(null)
   const [slideNumber, setSlideNumber] = useState(0);
   const [openModal, setOpenModal] = useState(false);
+  
 
   const modalHandler = (index) => {
     setSlideNumber(index);
@@ -28,6 +30,16 @@ const CGallery = ({ gallery }) => {
       : setSlideNumber(slideNumber + 1);
   };
 
+  useEffect(() => {
+    if (openModal) {
+      timerRef.current = setTimeout(() => {
+        nextSlide();
+      }, 2000);
+    }
+    return () => clearTimeout(timerRef.current);
+  })
+  
+
   return (
     <>
       {openModal && (
@@ -40,7 +52,7 @@ const CGallery = ({ gallery }) => {
           <BsArrowLeftCircle className="btnPrev" onClick={prevSlide} />
           <BsArrowRightCircle className="btnNext" onClick={nextSlide} />
           <div className="fullscreen__img">
-            <img src={gallery[slideNumber].img} className="static" alt="" />
+            <img src={gallery[slideNumber].img} alt="" />
           </div>
         </div>
       )}
