@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./bgallery.css";
 
 import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const BGallery = ({ galleryImg }) => {
+  const timerRef = useRef(null)
   const [slideNumber, setSlideNumber] = useState(0);
   const [openModal, setOpenModal] = useState(false);
+  const [staticPic, setStaticPic] = useState(0)
 
   const handleOpenModal = (index) => {
     setSlideNumber(index);
@@ -29,16 +31,36 @@ const BGallery = ({ galleryImg }) => {
       : setSlideNumber(slideNumber + 1);
   };
 
+  useEffect(() => {
+    timerRef.current = setTimeout(() => {
+      nextSlide()
+    }, 4000);
+
+    return () => clearTimeout(timerRef.current)
+  })
+
+  const increaseStaticPic = (index) => {
+    console.log(index);
+      setStaticPic(index)
+  }
+  
+
   return (
     <div>
+
+
+      <div>
+
+      </div>
+      
+
+
+
       {openModal && (
-        <div className="slider__wrap">
-          <AiOutlineCloseCircle
-            className="btnClose"
-            onClick={handleCloseModal}
-          />
+        <div className="slider__wrap"> <AiOutlineCloseCircle className="btnClose" onClick={handleCloseModal}/>
           <BsArrowLeftCircle className="btnPrev" onClick={prevSlide} />
           <BsArrowRightCircle className="btnNext" onClick={nextSlide} />
+
           <div className="fullscreen__img">
             <img src={galleryImg[slideNumber].img} alt="" />
           </div>
@@ -46,14 +68,11 @@ const BGallery = ({ galleryImg }) => {
       )}
       
       <div className="gallery__wrap">
+      <img src={galleryImg[staticPic].img} alt="" className="static" />
         {galleryImg &&
           galleryImg.map((slide, index) => {
             return (
-              <div
-                className="single"
-                key={index}
-                onClick={() => handleOpenModal(index)}
-              >
+              <div className="single" key={index} onClick={() => {handleOpenModal(index); increaseStaticPic(index)}}>
                 <img src={slide.img} alt="" />
               </div>
             );
