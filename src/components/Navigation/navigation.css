@@ -1,133 +1,171 @@
+nav {
+  display: flex;
+  justify-content: space-around;
+  height: 7rem;
+  border-bottom: 1px solid var(--clr-brown);
+  align-items: center;
+  position: static;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  font-weight: 500;
+}
 
-  nav {
-    display: flex;
-    justify-content: space-around;
-    height: 7rem;
-    border-bottom: 1px solid var(--clr-brown);
-    align-items: center;
-    position: static;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    width: 100%;
-    font-weight: 500;
-  }
+li {
+  text-transform: uppercase;
+  font-family: 'Neucha', cursive;
+}
 
-   li {
-    text-transform: uppercase;
-    font-family: 'Neucha', cursive;
-  }
+.nav__buttons ul {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+}
 
-  .nav__buttons ul {
-    display: flex;
-    flex-direction: row;
-    white-space: nowrap;
-  }
+.nav__buttons li {
+  color: var(--clr-brown);
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  font-size: 20px;
+}
 
-  .nav__buttons li {
-    color: var(--clr-brown);
-    padding: 1rem 1rem;
-    font-weight: 700;
-    font-size: 20px;
+.nav__buttons li:last-child {
+  margin-left: 50px;
+  border-left: 1px solid var(--clr-brown);
+}
+
+.nav__logo {
+  width: 110px;
+}
+
+nav a:hover {
+  color: var(--clr-ligter-brown)
+}
+
+
+.drop__down {
+  position: relative;
+  display: inline-block;
+  margin-right: 50px;
+}
+
+.drop__btn {
+  background-color: transparent;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+
+.dropdown__content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 130px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown__content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown__content a:hover {
+  background-color: #f1f1f1
+}
+
+.drop__down:hover .dropdown__content {
+  display: block;
+}
+
+.drop__down:hover .drop__btn {
+  background-color: transparent;
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) {
+  .nav__buttons a {
+    padding: 0.5rem;
+    font-size: 16px;
   }
 
   .nav__logo {
-    width: 110px;
+    max-width: 100%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+  .list__card {
+    max-width: 100%;
   }
 
-  nav a:hover {
-    color: var(--clr-ligter-brown)
+  img {
+    max-width: 100%;
+    height: 50%;
   }
 
-  .nav__buttons.right-button {
-    margin-right: 10rem;
+  .list__title {
+    font-size: 1.5rem;
+  }
+}
 
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+  nav {
+    justify-content: space-between;
   }
 
   .drop__down {
-    position: relative;
-    display: inline-block;
-    margin-right: 50px;
+    margin: 0;
   }
 
   .drop__btn {
-    background-color: transparent;
-    color: black;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    display: none;
+    display: block;
+    /* Show the button */
   }
-
 
   .dropdown__content {
+    margin-left: -60px;
+  }
+
+  .nav__buttons {
     display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 130px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    /* Hide the navigation menu */
   }
 
-  .dropdown__content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
+  .nav__logo {
+    max-width: 100%;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 300px) {
+
+  .drop__btn {
     display: block;
+    padding: 0;
+    /* Show the button */
   }
 
-  .dropdown__content a:hover {
-    background-color: #f1f1f1
+  .dropdown__content {
+    margin-left: -30px;
   }
 
-  .drop__down:hover .dropdown__content {
-    display: block;
+  .nav__logo {
+    max-width: 80%;
+    aspect-ratio: 1/1;
   }
-
-  .drop__down:hover .drop__btn {
-    background-color: transparent;
-  }
-
-  /* ========== MEDIA QUERIES (MEDIUM DEVICES)  ========== */
-
-  @media screen and (max-width: 1024px) {
-
-    .nav__buttons a {
-      padding: 0.5rem;
-      font-size: 16px;
-    }
-
-    .nav__logo {
-      margin-left: 6rem;
-      width: 150px;
-    }
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .drop__btn {
-      display: block;
-      /* Show the button */
-    }
-
-    .nav__buttons {
-      display: none;
-      /* Hide the navigation menu */
-    }
-
-    .nav__logo {
-      width: 150px;
-    }
-  }
-
-  @media screen and (max-width: 360px) {
-
-    nav {
-      justify-content: space-evenly;
-    }
-
-    .nav__logo {
-      width: 100px;
-    }
-  }
+}

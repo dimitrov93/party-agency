@@ -7,6 +7,7 @@ import table2 from "../../assets/Cards/table/2.jpg";
 import table3 from "../../assets/Cards/table/3.jpg";
 import table4 from "../../assets/Cards/table/4.jpg";
 import table5 from "../../assets/Cards/table/5.jpg";
+import footerTable from "../../assets/Cards/table/footer.jpg";
 
 //Tablo
 import mainTablo from "../../assets/Cards/tablo/main.jpg";
@@ -18,6 +19,7 @@ import tablo5 from "../../assets/Cards/tablo/5.jpg";
 import tablo6 from "../../assets/Cards/tablo/6.jpg";
 import tablo7 from "../../assets/Cards/tablo/7.jpg";
 import tablo8 from "../../assets/Cards/tablo/8.jpg";
+import footerTablo from "../../assets/Cards/tablo/footer.jpg";
 
 //Cards
 import mainCard from "../../assets/Cards/cards/main.jpg";
@@ -27,76 +29,82 @@ import card3 from "../../assets/Cards/cards/3.jpg";
 import Invitations from "./Invitations/Invitations";
 import Tablo from "./Tablo/Tablo";
 import Table from "./Table/Table";
-
-
+import footerCard from "../../assets/Cards/cards/footer.jpg";
 
 const Card = () => {
+  const tabloImgs = [
+    {
+      img: footerTablo,
+    },
+    {
+      img: tablo1,
+    },
+    {
+      img: tablo2,
+    },
+    {
+      img: tablo3,
+    },
+    {
+      img: tablo4,
+    },
+    {
+      img: tablo5,
+    },
+    {
+      img: tablo6,
+    },
+    {
+      img: tablo7,
+    },
+    {
+      img: tablo8,
+    },
+  ];
 
-    const tabloImgs = [
-        {
-            img: tablo1
-        },
-        {
-            img: tablo2
-        },
-        {
-            img: tablo3
-        },
-        {
-            img: tablo4
-        },
-        {
-            img: tablo5
-        },
-        {
-            img: tablo6
-        },
-        {
-            img: tablo7
-        },
-        {
-            img: tablo8
-        },
-    ]
-    
-    const tableImgs = [
-        {
-            img: table1
-        },
-        {
-            img: table2
-        },
-        {
-            img: table3
-        },
-        {
-            img: table4
-        },
-        {
-            img: table5
-        },
-    
-    ]
-    
-    const cardsImgs = [
-        {
-            img: card1
-        },
-        {
-            img: card2
-        },
-        {
-            img: card3
-        },
-        
-    ]
-    
+  const tableImgs = [
+    {
+      img: footerTable,
+    },
+    {
+      img: table1,
+    },
+    {
+      img: table2,
+    },
+    {
+      img: table3,
+    },
+    {
+      img: table4,
+    },
+    {
+      img: table5,
+    },
+  ];
+
+  const cardsImgs = [
+    {
+      img: footerCard,
+    },
+    {
+      img: card1,
+    },
+    {
+      img: card2,
+    },
+    {
+      img: card3,
+    },
+  ];
 
   return (
     <section className="container">
       <div className="card__header">
         <div className="line"></div>
-        <div className="text">Покани за гости, картички, настанително табло</div>
+        <div className="text">
+          Покани за гости, картички, настанително табло
+        </div>
         <div className="line"></div>
       </div>
 
@@ -155,7 +163,6 @@ const Card = () => {
       </div>
 
       <div className="card__footer">
-        
         <div className="card__footer__container">
           <Table galleryImg={tableImgs} />
         </div>
@@ -163,10 +170,9 @@ const Card = () => {
         <div className="card__footer__container">
           <Tablo galleryImg={tabloImgs} />
         </div>
-        
 
         <div className="card__footer__container">
-            <Invitations galleryImg={cardsImgs} />
+          <Invitations galleryImg={cardsImgs} />
         </div>
       </div>
     </section>

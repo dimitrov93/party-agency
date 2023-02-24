@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import footerCard from "../../../assets/Cards/cards/footer.jpg";
 
 const Invitations = ({ galleryImg }) => {
   const timerRef = useRef(null);
@@ -58,7 +57,7 @@ const Invitations = ({ galleryImg }) => {
       )}
 
         <img
-          src={footerCard}
+          src={galleryImg[0].img}
           alt=""
           className="static"
           onClick={() => {

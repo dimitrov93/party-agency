@@ -17,7 +17,7 @@ const Navigation = () => {
         <div className="dropdown__content">
           <Link to="/decoration">Украса</Link>
           <Link to="/cards">Покани за гости</Link>
-          <Link to="/">Подаръци за гости</Link>
+          {/* <Link to="/">Подаръци за гости</Link> */}
           <Link to="/catering">Кетъринг</Link>
           <Link to="/contacts">Контакти</Link>
         </div>
@@ -34,21 +34,24 @@ const Navigation = () => {
           <li>
             <Link to="/cards">Покани за гости</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/">Подаръци за гости</Link>
-          </li>
+          </li> */}
           <li>
           <Link to="/catering">Кетъринг</Link>
           </li>
-        </ul>
-      </div>
-      <div className="nav__buttons right-button">
-        <ul>
           <li>
             <Link to={"/contacts"}>Контакти</Link>
           </li>
         </ul>
       </div>
+      {/* <div className="nav__buttons right-button">
+        <ul>
+          <li>
+            <Link to={"/contacts"}>Контакти</Link>
+          </li>
+        </ul>
+      </div> */}
     </nav>
   );
 };
