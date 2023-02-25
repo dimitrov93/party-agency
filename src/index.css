@@ -7,7 +7,11 @@
   --clr-brown: #d0a977;
   --clr-ligter-brown: #e3c7a2;
 
-  --trans: all 400ms ease
+  --trans: all 400ms ease;
+
+  --container-width-lg: 75%;
+  --container-width-md: 86%;
+  --container-width-sm: 90%;
 }
 
 html {
@@ -71,7 +75,7 @@ body {
 }
 
 .container {
-  max-width: 1260px;
+  max-width: var(--container-width-lg);
   background-color: transparent;
   margin: 0 auto;
   margin-top: 0.5rem;
@@ -198,4 +202,20 @@ body {
   transform: scale(1.02);
   transition: var(--trans);
   cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+      width: var(--container-width-md);
+  }
+
+}
+
+/* ========== MEDIA QUERIES (SMALL DEVICES)  ========== */
+
+@media screen and (max-width: 600px) {
+  .container {
+      width: var(--container-width-sm);
+  }
+
 }

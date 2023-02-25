@@ -81,8 +81,6 @@ img {
 @media only screen and (max-width: 600px) {
     .list__cards {
         grid-template-columns: repeat(1, 1fr);
-        justify-items: center;
-        align-items: center;
     }
 
     .list__cards img {
