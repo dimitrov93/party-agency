@@ -85,12 +85,8 @@ img {
         align-items: center;
     }
 
-    .list__card {
-        width: 30%;
-    }
-
     img {
-        max-width: 100%;
+        max-width: 50%;
     }
 
     .list__title {
