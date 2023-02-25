@@ -134,9 +134,13 @@ h2,h3 {
     }
   }
 
-  /* ========== MEDIA QUERIES (MEDIUM DEVICES)  ========== */
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) {
 
-@media screen and (max-width: 1024px) {
+    .article__left,
+    .article__right {
+        justify-content: center;
+    }
 
     .home__title {
         font-size: 3.5rem;
@@ -153,26 +157,82 @@ h2,h3 {
         height: 90%;
         max-width: 30%;
     }
- 
+    .article__right img {
+        margin-right: 40px;
+    }
+    .article__logo {
+        max-width: 40%;
+        margin-left: 20px;
+    }
 }
 
-/* ========== MEDIA QUERIES (SMALL DEVICES)  ========== */
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
 
-@media screen and (max-width: 600px) {
+}
 
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+
+      .article__left:nth-last-child(1) img {
+        max-width: 45%;
+    }
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
     .home__title {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     .article__header h2 {
-        font-size: 2.5rem;
+        font-size: 2.9rem;
       }
       
     .article__header h3 {
+        font-size: 2rem;
+      }
+
+      .article__right img {
+        margin-right: 40px;
+    }
+    .article__logo {
+        max-width: 40%;
+        margin-left: 20px;
+    }
+
+    .article__left:nth-last-child(1)  {
+        margin: 0;
+        padding: 10px;
+    }
+
+      .article__left:nth-last-child(1) img {
+        max-width: 40%;
+    }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 300px) {
+    .home__title {
+        font-size: 1.5rem;
+    }
+
+    .article__header h2 {
         font-size: 1.5rem;
       }
-    .article__logo {
-        height: 90%;
-        max-width: 50%;
+      
+    .article__header h3 {
+        font-size: 1rem;
+      }
+
+      .article__left:nth-last-child(1)  {
+        margin: 0;
+        padding: 10px;
     }
+
+      .article__left:nth-last-child(1) img {
+        max-width: 40%;
+    }
+
 }

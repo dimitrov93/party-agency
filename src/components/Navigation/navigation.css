@@ -103,13 +103,21 @@ nav a:hover {
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 992px) {
+
+  nav {
+    justify-content: space-between;
+    height: 6.5rem;
+  }
+
+  .nav__buttons a {
+    padding: 0;
+  }
   .list__card {
     max-width: 100%;
   }
 
-  img {
-    max-width: 100%;
-    height: 50%;
+  .nav__logo {
+    max-width: 80%;
   }
 
   .list__title {
@@ -119,13 +127,16 @@ nav a:hover {
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 768px) {
-
+  .nav__buttons li a {
+    padding: 0;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) {
   nav {
     justify-content: space-between;
+    height: 6rem;
   }
 
   .drop__down {
@@ -135,10 +146,15 @@ nav a:hover {
   .drop__btn {
     display: block;
     /* Show the button */
+    color: var(--clr-brown);
   }
 
   .dropdown__content {
     margin-left: -60px;
+  }
+
+  .dropdown__content a {
+    color: var(--clr-brown);
   }
 
   .nav__buttons {
@@ -147,16 +163,20 @@ nav a:hover {
   }
 
   .nav__logo {
-    max-width: 100%;
+    max-width: 70%;
   }
 }
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 300px) {
+  nav {
+    height: 5rem;
+  }
 
   .drop__btn {
+  
     display: block;
-    padding: 0;
+    padding: 5px;
     /* Show the button */
   }
 
@@ -165,7 +185,7 @@ nav a:hover {
   }
 
   .nav__logo {
-    max-width: 80%;
+    max-width: 60%;
     aspect-ratio: 1/1;
   }
 }

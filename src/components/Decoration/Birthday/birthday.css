@@ -11,8 +11,6 @@
     max-width: 100%;
 }
 
-
-
 .birthday__gallery_container{
     max-width: 30%;
     display: flex;
@@ -26,4 +24,39 @@
 
 .first__pic {
     max-width: 50%;
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) {
+    .birthday__wrapper {
+        gap: 16px;
+    }
+
+    .birthday__gallery {
+        max-width: 90%;
+        aspect-ratio: 1/1;
+        justify-content: center;
+        justify-self: center;
+    }
+    
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 300px) {
+
 }

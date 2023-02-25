@@ -64,7 +64,7 @@ const Tablo = ({ galleryImg }) => {
             handleOpenModal(0);
           }}
         />
-        <div class="image-text">
+        <div className="image-text">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, ab?
           </p>
