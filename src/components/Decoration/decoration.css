@@ -78,11 +78,7 @@ img {
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (max-width: 600px) {}
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 300px) {
-
+@media only screen and (max-width: 600px) {
     .list__cards {
         grid-template-columns: repeat(1, 1fr);
         justify-items: center;
@@ -100,4 +96,10 @@ img {
     .list__title {
         font-size: 1.2rem;
     }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 300px) {
+
+
 }
