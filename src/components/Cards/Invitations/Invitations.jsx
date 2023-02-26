@@ -40,7 +40,7 @@ const Invitations = ({ galleryImg }) => {
   });
 
   return (
-    <div className="pic">
+    <div>
       {openModal && (
         <div className="slider__wrap">
           {" "}

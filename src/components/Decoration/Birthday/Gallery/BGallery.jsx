@@ -41,42 +41,69 @@ const BGallery = ({ galleryImg }) => {
   });
 
   return (
-    <div>
+    // <div>
+    //   {openModal && (
+    //     <div className="slider__wrap">
+    //       {" "}
+    //       <AiOutlineCloseCircle
+    //         className="btnClose"
+    //         onClick={handleCloseModal}
+    //       />
+    //       <BsArrowLeftCircle className="btnPrev" onClick={prevSlide} />
+    //       <BsArrowRightCircle className="btnNext" onClick={nextSlide} />
+    //       <div className="fullscreen__img">
+    //         <img src={galleryImg[slideNumber].img} alt="" />
+    //       </div>
+    //     </div>
+    //   )}
 
-      {openModal && (
-        <div className="slider__wrap">
-          {" "}
-          <AiOutlineCloseCircle
-            className="btnClose"
-            onClick={handleCloseModal}
-          />
-          <BsArrowLeftCircle className="btnPrev" onClick={prevSlide} />
-          <BsArrowRightCircle className="btnNext" onClick={nextSlide} />
-          <div className="fullscreen__img">
-            <img src={galleryImg[slideNumber].img} alt="" />
-          </div>
-        </div>
-      )}
-
-      <div className="gallery__wrap">
-        <img
-          src={galleryImg[0].img}
-          alt=""
-          className="static"
-          onClick={() => {
-            handleOpenModal(0);
-          }}
+    //   <div className="gallery__wrap">
+    //     <img
+    //       src={galleryImg[0].img}
+    //       alt=""
+    //       className="static"
+    //       onClick={() => {
+    //         handleOpenModal(0);
+    //       }}
+    //     />
+    //     <div className="image-text">
+    //       <p>
+    //         Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, ab?
+    //       </p>
+    //     </div>
+  
+    //   </div>
+    // </div>
+    <>
+    {openModal && (
+      <div className="slider__wrap">
+        {" "}
+        <AiOutlineCloseCircle
+          className="btnClose"
+          onClick={handleCloseModal}
         />
-        {/* {galleryImg &&
-          galleryImg.map((slide, index) => {
-            return (
-              <div className="single" key={index} onClick={() => {handleOpenModal(index); increaseStaticPic(index)}}>
-
-              </div>
-            );
-          })} */}
+        <BsArrowLeftCircle className="btnPrev" onClick={prevSlide} />
+        <BsArrowRightCircle className="btnNext" onClick={nextSlide} />
+        <div className="fullscreen__img">
+          <img src={galleryImg[slideNumber].img} alt="" />
+        </div>
       </div>
-    </div>
+    )}
+
+      <img
+        src={galleryImg[0].img}
+        alt=""
+        className="static"
+        onClick={() => {
+          handleOpenModal(0);
+        }}
+      />
+      {/* <div className="image-text">
+        <p>
+          Lorem ipsum dolor sit amet.
+        </p>
+    </div> */}
+  </>
   );
 };
 

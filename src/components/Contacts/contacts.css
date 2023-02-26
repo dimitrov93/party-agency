@@ -226,16 +226,4 @@
         flex-direction: row;
     }
 
-    .contacts__information_item {
-        justify-content: center;
-        justify-items: center;
-        justify-self: center;
-        align-items: center;
-        align-self: center;
-        align-content: center;
-    }
-
-    .contacts__information, .contacts__email {
-
-    }
 }

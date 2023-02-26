@@ -40,7 +40,7 @@ const Table = ({ galleryImg }) => {
   });
 
   return (
-    <div className="pic">
+    <div>
       {openModal && (
         <div className="slider__wrap">
           {" "}
@@ -66,7 +66,7 @@ const Table = ({ galleryImg }) => {
         />
         <div className="image-text">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, ab?
+            Lorem ipsum dolor sit amet.
           </p>
       </div>
     </div>

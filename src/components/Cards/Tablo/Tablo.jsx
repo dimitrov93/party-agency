@@ -66,7 +66,7 @@ const Tablo = ({ galleryImg }) => {
         />
         <div className="image-text">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, ab?
+            Lorem ipsum dolor sit amet consectetur adipisicing.
           </p>
       </div>
     </div>

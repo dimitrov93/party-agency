@@ -1,6 +1,7 @@
 import React from "react";
 import "./birthday.css";
 import BGallery from "./Gallery/BGallery";
+
 import img1 from "../../../assets/bd/1.jpg";
 import img2 from "../../../assets/bd/2.jpg";
 import img3 from "../../../assets/bd/3.jpg";
@@ -8,7 +9,6 @@ import img4 from "../../../assets/bd/4.jpg";
 import img5 from "../../../assets/bd/5.jpg";
 import img6 from "../../../assets/bd/6.jpg";
 import img7 from "../../../assets/bd/7.jpg";
-
 
 import img11 from "../../../assets/bd2/1.jpg";
 import img22 from "../../../assets/bd2/2.jpg";
@@ -74,24 +74,33 @@ const Birthday = () => {
   return (
     <div className="container">
       <h3>ИЗБЕРЕТЕ ОТ НАШИ ГОТОВИ ВИЗИИ</h3>
-      <div className="birthday__wrapper">
-        {/* <h4>
+      {/* <p>
           Ако сте вдъхновени от нашите декори и си представяте и вашия празник
           пъстър, цветен и вълшебен, можете да се възползвате от нашите вече
           изградени концепции
-        </h4> */}
-        <div className="birthday__gallery">
+        </p> */}
+      <div className="birthday__wrapper">
+        {/*  */}
+        <div className="gallery">
           <BGallery galleryImg={galleryImg} />
+          <div className="gallery__text">
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
         </div>
 
-        <div className="birthday__gallery">
+        <div className="gallery">
           <BGallery galleryImg={galleryImg2} />
+          <div className="gallery__text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+          </div>
         </div>
 
-        <div className="birthday__gallery">
+        <div className="gallery">
           <BGallery galleryImg={galleryImg3} />
+          <div className="gallery__text">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, corrupti!</p>
+          </div>
         </div>
-
       </div>
     </div>
   );

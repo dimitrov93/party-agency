@@ -111,39 +111,44 @@ const Card = () => {
       <div className="card__body">
         <div className="card__items">
           <div className="card__img">
-            <img src={mainTable} alt="" />
+            {/* <img src={mainTable} alt="" /> */}
           </div>
 
           <div className="card__text">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
-              animi!
+              Агенция за украса “Вълшебно цвете” Ви предлага покани за Вашите
+              гости. Може да изберете от готовите ни модели или да направим
+              индивидуален модел в зависимост от темата и цветовете на
+              определения повод.
             </p>
           </div>
         </div>
 
         <div className="card__items">
           <div className="card__img">
-            <img src={mainTablo} alt="" />
+            {/* <img src={mainTablo} alt="" /> */}
           </div>
 
           <div className="card__text">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
-              animi!
+              За ваше удобство и на вашите гости , ние предлагаме също
+              изработване на картички с имена на гости за разпределение по маси.
+              Те ще бъдат изработени в цвета и темата на вашата украса.
             </p>
           </div>
         </div>
 
         <div className="card__items">
           <div className="card__img">
-            <img src={mainCard} alt="" />
+            {/* <img src={mainCard} alt="" /> */}
           </div>
 
           <div className="card__text">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
-              animi!
+              За добрата организация на събитието може да поръчате и
+              разпределителна табела с имената на гостите. Тя също може да бъде
+              изработена като бъде съобразена с тематиката на събитието. Това ще
+              бъде вашето табло за настаняване на гостите в ресторанта.
             </p>
           </div>
         </div>
@@ -151,12 +156,9 @@ const Card = () => {
         <div className="card__items">
           <div className="card__text">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt,
-              nobis atque quos quia modi repellat nesciunt nisi a dicta, vero
-              corrupti minus voluptas reiciendis eaque architecto itaque totam
-              pariatur odio commodi hic eum, ratione sed esse! Explicabo
-              exercitationem eius, omnis officiis dicta sit, error nam neque
-              soluta tempora ipsam alias?
+              Поканите за гости , картичките с имена за масите и настанителните
+              табла могат да бъдат изработени по индивидуален проект. Разбира се
+              , може да се възползвате и от нашите готови предложения:
             </p>
           </div>
         </div>
