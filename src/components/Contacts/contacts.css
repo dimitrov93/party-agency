@@ -186,21 +186,18 @@
         font-size: 2rem;
     }
     .contacts__information {
+        margin: 0;
         position: relative;
-        margin-top: 40px;
+        top: 10px;
         font-size: 22px;
         width: 100%;
+
     }
     .contacts__container { 
         height: auto;
     }
 }
 
-@media only screen and (max-width: 576px) { 
-    .contacts__container { 
-        height: 1000px;
-    }
-}
 
 @media only screen and (max-width: 320px) {
     .contacts__header {
