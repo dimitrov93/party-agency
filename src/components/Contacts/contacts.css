@@ -196,6 +196,12 @@
     }
 }
 
+@media only screen and (max-width: 576px) { 
+    .contacts__container { 
+        height: 1000px;
+    }
+}
+
 @media only screen and (max-width: 320px) {
     .contacts__header {
         font-size: 1.5rem;
