@@ -4,10 +4,15 @@ import Navigation from "./components/Navigation/Navigation";
 import { Routes, Route } from "react-router-dom";
 import Contacts from "./components/Contacts/Contacts";
 import Decoration from "./components/Decoration/Decoration";
-import Birthday from "./components/Decoration/Birthday/Birthday";
-import Baptism from "./components/Decoration/Baptism/Baptism";
+
+import Birthday from "./components/Decoration/Album/Birthday";
+import Baptism from "./components/Decoration/Album/Baptism";
+
 import Catering from "./components/Catering/Catering";
 import Card from "./components/Cards/Card";
+import Wedding from "./components/Decoration/Album/Wedding";
+import Cake from "./components/Decoration/Album/Cake";
+import Anniversary from "./components/Decoration/Album/Anniversary";
 
 function App() {
   return (
@@ -25,6 +30,9 @@ function App() {
         <Route path="/decoration" element={<Decoration />}></Route>
         <Route path="/decoration/bday" element={<Birthday />}></Route>
         <Route path="/decoration/baptism" element={<Baptism />}></Route>
+        <Route path="/decoration/wedding" element={<Wedding />}></Route>
+        <Route path="/decoration/cake" element={<Cake />}></Route>
+        <Route path="/decoration/anniversary" element={<Anniversary />}></Route>
       </Routes>
       <Footer />
     </>

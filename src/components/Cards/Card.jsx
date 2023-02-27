@@ -1,7 +1,8 @@
 import React from "react";
 import "./card.css";
+import Images from "../../common/Images/Images";
+
 // Table
-import mainTable from "../../assets/Cards/table/main.jpg";
 import table1 from "../../assets/Cards/table/1.jpg";
 import table2 from "../../assets/Cards/table/2.jpg";
 import table3 from "../../assets/Cards/table/3.jpg";
@@ -10,7 +11,6 @@ import table5 from "../../assets/Cards/table/5.jpg";
 import footerTable from "../../assets/Cards/table/footer.jpg";
 
 //Tablo
-import mainTablo from "../../assets/Cards/tablo/main.jpg";
 import tablo1 from "../../assets/Cards/tablo/1.jpg";
 import tablo2 from "../../assets/Cards/tablo/2.jpg";
 import tablo3 from "../../assets/Cards/tablo/3.jpg";
@@ -22,13 +22,9 @@ import tablo8 from "../../assets/Cards/tablo/8.jpg";
 import footerTablo from "../../assets/Cards/tablo/footer.jpg";
 
 //Cards
-import mainCard from "../../assets/Cards/cards/main.jpg";
 import card1 from "../../assets/Cards/cards/1.jpg";
 import card2 from "../../assets/Cards/cards/2.jpg";
 import card3 from "../../assets/Cards/cards/3.jpg";
-import Invitations from "./Invitations/Invitations";
-import Tablo from "./Tablo/Tablo";
-import Table from "./Table/Table";
 import footerCard from "../../assets/Cards/cards/footer.jpg";
 
 const Card = () => {
@@ -165,17 +161,35 @@ const Card = () => {
       </div>
 
       <div className="card__footer">
-        <div className="card__footer__container">
-          <Table galleryImg={tableImgs} />
+        <div className="card__footer__container gallery">
+          <Images galleryImg={tableImgs} />
+          <div className="gallery__text">
+            <p>Lorem ipsum dolor sit amet1.</p>
+          </div>
         </div>
 
+        <div className="card__footer__container gallery">
+          <Images galleryImg={tabloImgs} />
+          <div className="gallery__text">
+            <p>Lorem ipsum dolor sit amet2.</p>
+          </div>
+        </div>
+
+        
+        <div className="card__footer__container gallery">
+          <Images galleryImg={cardsImgs} />
+          <div className="gallery__text">
+            <p>Lorem ipsum dolor sit amet3.</p>
+          </div>
+        </div>
+{/* 
         <div className="card__footer__container">
           <Tablo galleryImg={tabloImgs} />
         </div>
 
         <div className="card__footer__container">
           <Invitations galleryImg={cardsImgs} />
-        </div>
+        </div> */}
       </div>
     </section>
   );

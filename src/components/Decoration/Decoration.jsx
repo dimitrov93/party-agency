@@ -26,20 +26,26 @@ const Decoration = () => {
 
             <div className="list__card">
                 <img src={img} alt="" className="list__img" />
+                <Link to={'/decoration/wedding'} >
                 <h4 className="list__title">Сватба</h4>
                 <button className='green__btn'>Разгледай</button>
+                </Link>
             </div>
 
             <div className="list__card">
                 <img src={img} alt="" className="list__img" />
+                <Link to={'/decoration/cake'}>
                 <h4 className="list__title">Погача</h4>
                 <button className='green__btn'>Разгледай</button>
+                </Link>
             </div>
 
             <div className="list__card">
                 <img src={img} alt="" className="list__img" />
+                <Link to={'/decoration/anniversary'}>
                 <h4 className="list__title">Ябилей</h4>
                 <button className='green__btn'>Разгледай</button>
+                </Link>
             </div>
 
             <div className="list__card">

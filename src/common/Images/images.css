@@ -1,0 +1,115 @@
+/* Opening image on FULL SCREEN */
+
+.slider__wrap {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .slider__wrap .btnClose,
+  .slider__wrap .btnPrev,
+  .slider__wrap .btnNext {
+    position: fixed;
+    cursor: pointer;
+    opacity: 0.6;
+    color: #fff;
+    z-index: 9999;
+    font-size: 1.5rem;
+  }
+  
+  .btnClose:hover,
+  .btnPrev:hover,
+  .btnNext:hover {
+    opacity: 1;
+  }
+  
+  .slider__wrap .btnNext {
+    top: 50%;
+    transform: translateY(-50%);
+    right: 40px;
+  }
+  
+  .slider__wrap .btnPrev {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 40px;
+  }
+  
+  .slider__wrap .btnClose {
+    top: 40px;
+    right: 40px;
+  }
+  
+  .fullscreen__img {
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+  
+  }
+  
+  .fullscreen__img img {
+    max-width: 100%;
+    max-height: 100%;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  
+  
+  /* Opening on IMAGE FULL-SCREEN END */
+
+.static {
+    max-width: 100%;
+    border-radius: 40px;
+}
+
+.static:hover {
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.23);
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.23);
+    transform: scale(1.02);
+    transition: var(--trans);
+    cursor: pointer;
+}
+
+.gallery {
+    position: relative;
+}
+
+.gallery img:hover {
+    opacity: 0.5;
+}
+
+.gallery__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.gallery:hover .gallery__text {
+    opacity: 1;
+}
+
+.gallery__text p {
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    user-select: none;
+}

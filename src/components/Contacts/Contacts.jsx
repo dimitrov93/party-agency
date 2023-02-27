@@ -1,6 +1,5 @@
 import React from "react";
 import "./contacts.css";
-import logo from "../../assets/contacts.jpg";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsPhone } from "react-icons/bs";
