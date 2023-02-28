@@ -34,8 +34,8 @@ const Decoration = () => {
 
             <div className="list__card">
                 <img src={img} alt="" className="list__img" />
-                <Link to={'/decoration/cake'}>
-                <h4 className="list__title">Погача</h4>
+                <Link to={'/decoration/prom'}>
+                <h4 className="list__title">Абитуриентски бал</h4>
                 <button className='green__btn'>Разгледай</button>
                 </Link>
             </div>

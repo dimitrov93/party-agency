@@ -11,7 +11,7 @@ import Baptism from "./components/Decoration/Album/Baptism";
 import Catering from "./components/Catering/Catering";
 import Card from "./components/Cards/Card";
 import Wedding from "./components/Decoration/Album/Wedding";
-import Cake from "./components/Decoration/Album/Cake";
+import Prom from "./components/Decoration/Album/Cake";
 import Anniversary from "./components/Decoration/Album/Anniversary";
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
         <Route path="/decoration/bday" element={<Birthday />}></Route>
         <Route path="/decoration/baptism" element={<Baptism />}></Route>
         <Route path="/decoration/wedding" element={<Wedding />}></Route>
-        <Route path="/decoration/cake" element={<Cake />}></Route>
+        <Route path="/decoration/prom" element={<Prom />}></Route>
         <Route path="/decoration/anniversary" element={<Anniversary />}></Route>
       </Routes>
       <Footer />

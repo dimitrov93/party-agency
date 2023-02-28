@@ -2,17 +2,21 @@ import React from "react";
 import "./album.css";
 import Images from "../../../common/Images/Images";
 
-import img1 from "../../../assets/Cage/1.jpg";
+import img1 from "../../../assets/Prom/prom1/1.jpg";
+import img2 from "../../../assets/Prom/prom2/1.jpg";
 
-
-
-const Cake = () => {
+const Prom = () => {
   const galleryImg = [
     {
       img: img1,
     },
   ];
 
+  const galleryImg2 = [
+    {
+      img: img2,
+    },
+  ];
 
   return (
     <div className="container">
@@ -24,10 +28,18 @@ const Cake = () => {
         </p> */}
       <div className="birthday__wrapper">
         {/*  */}
+
         <div className="gallery">
           <Images galleryImg={galleryImg} />
           <div className="gallery__text">
-            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Бал на Веселин</p>
+          </div>
+        </div>
+
+        <div className="gallery">
+          <Images galleryImg={galleryImg2} />
+          <div className="gallery__text">
+            <p>Завършване - Криси</p>
           </div>
         </div>
 
@@ -36,4 +48,4 @@ const Cake = () => {
   );
 };
 
-export default Cake;
+export default Prom;

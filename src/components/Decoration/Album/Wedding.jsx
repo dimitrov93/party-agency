@@ -91,19 +91,6 @@ const Wedding = () => {
           </div>
         </div>
 
-        {/* <div className="gallery">
-          <Images galleryImg={galleryImg2} />
-          <div className="gallery__text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-          </div>
-        </div>
-
-        <div className="gallery">
-          <Images galleryImg={galleryImg3} />
-          <div className="gallery__text">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, corrupti!</p>
-          </div>
-        </div> */}
       </div>
     </div>
   );

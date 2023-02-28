@@ -19,6 +19,7 @@ import img222 from "../../../assets/bd3/2.jpg";
 import img333 from "../../../assets/bd3/3.jpg";
 import img444 from "../../../assets/bd3/4.jpg";
 
+import img51 from "../../../assets/Cage/1.jpg";
 
 const Birthday = () => {
   const galleryImg = [
@@ -72,6 +73,12 @@ const Birthday = () => {
     },
   ];
 
+  const galleryImg5 = [
+    {
+      img: img51,
+    },
+  ];
+
   return (
     <div className="container">
       <h3>ИЗБЕРЕТЕ ОТ НАШИ ГОТОВИ ВИЗИИ</h3>
@@ -100,6 +107,13 @@ const Birthday = () => {
           <Images galleryImg={galleryImg3} />
           <div className="gallery__text">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, corrupti!</p>
+          </div>
+        </div>
+
+        <div className="gallery">
+          <Images galleryImg={galleryImg5} />
+          <div className="gallery__text">
+            <p>Погача на Кая</p>
           </div>
         </div>
       </div>

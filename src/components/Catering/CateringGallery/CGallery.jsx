@@ -60,7 +60,7 @@ const CGallery = ({ gallery }) => {
     {gallery &&
         gallery.map((x, index) => {
           return (
-            
+            <div>
               <img
                 src={x.img}
                 alt=""
@@ -68,7 +68,7 @@ const CGallery = ({ gallery }) => {
                 className='img__focus'
                 onClick={() => modalHandler(index)}
               />
-              
+            </div>
           );
         })}
 
