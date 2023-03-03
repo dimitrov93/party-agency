@@ -60,12 +60,12 @@ const Contacts = () => {
                 required
               ></textarea>
             </div>
-{/* 
+
             <div className="email__input">
               <label for="file-upload" class="custom-file-upload"> Изберете файл:
               </label>
               <input id="file-upload" type="file" name="attachments" multiple />
-            </div> */}
+            </div>
 
             <div className="email__btn">
             <input type="button" value="Send now" />

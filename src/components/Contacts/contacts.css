@@ -139,7 +139,9 @@ input[type="file"] {
     .contacts__separator {
         height: 300px;
     }
-
+    .contacts__email {
+        gap: 1rem;
+    }
 }
 
 @media only screen and (max-width: 992px) {
@@ -185,6 +187,11 @@ input[type="file"] {
 
     .contacts__information {
         font-size: 24px;
+    }
+
+ 
+    .contacts__email div:nth-child(4) {
+        display: none;
     }
 
 }
