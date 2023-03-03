@@ -80,18 +80,23 @@
     line-height: 1.5;
   }
   
-.contacts__email input[type='button'] {
+.contacts__email .email__btn {
+    width: 100%;
     color: #fff;
     font-size: 18px;
     outline: none;
-    padding: 8px 16px;
+    padding: 6px;
+    text-align: center;
     border-radius: 6px;
+    border: none;
     background: var(--clr-ligter-brown);
     cursor: pointer;
     transition: var(--trans);
+    margin-top: 10px;
+
 }
 
-.contacts__email input[type='button']:hover {
+.contacts__email .email__btn:hover {
     background: var(--clr-brown);
 }
 

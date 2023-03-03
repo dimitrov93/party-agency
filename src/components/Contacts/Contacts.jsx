@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./contacts.css";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
@@ -6,6 +6,56 @@ import { BsPhone } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const Contacts = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+    attachments: [],
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
+
+  const handleAttachmentChange = (event) => {
+    const { files } = event.target;
+    setFormData((prevFormData) => ({ ...prevFormData, attachments: files }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const formDataToSend = new FormData();
+    formDataToSend.append("name", formData.name);
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("message", formData.message);
+
+    for (let i = 0; i < formData.attachments.length; i++) {
+      formDataToSend.append("attachments", formData.attachments[i]);
+    }
+  
+    try {
+      const response = await fetch("https://party-agency-nodejs.onrender.com/send-email", {
+        method: "POST",
+        body: formDataToSend,
+      });
+      if (response.ok) {
+        console.log("Email sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+          attachments: [],
+        });
+      } else {
+        console.error("Failed to send email");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="container max_height">
       <div>
@@ -19,10 +69,10 @@ const Contacts = () => {
         <div className="contacts__information">
           <p className="contacts__information_item">
             <BsPhone className="contacts__icons" />
-            <p>Телефон</p> +359 889 245 051{" "}
+            <span>Телефон</span> +359 889 245 051{" "}
           </p>
           <p className="contacts__information_item">
-            <AiOutlineMail className="contacts__icons" /> <p>Емайл</p>{" "}
+            <AiOutlineMail className="contacts__icons" /> <span>Емайл</span>{" "}
             stefanytomova@gmail.com{" "}
           </p>
           <p className="contacts__information_item">
@@ -44,12 +94,26 @@ const Contacts = () => {
             вашата идея по желание:
           </p>
 
-          <form>
+          <form onSubmit={handleSubmit} encType="multipart/form-data">
             <div className="email__input">
-              <input type="text" placeholder="Име:" required />
+              <input
+                type="text"
+                placeholder="Име:"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                required
+              />
             </div>
             <div className="email__input">
-              <input type="text" placeholder="Емайл:" required />
+              <input
+                type="email"
+                placeholder="Емайл:"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+              />
             </div>
 
             <div className="email__input">
@@ -57,19 +121,29 @@ const Contacts = () => {
                 rows="7"
                 type="text"
                 placeholder="Съобщение:"
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
                 required
               ></textarea>
             </div>
 
             <div className="email__input">
-              <label for="file-upload" class="custom-file-upload"> Изберете файл:
+              <label htmlFor="file-upload" className="custom-file-upload">
+                {" "}
+                Изберете файл:
               </label>
-              <input id="file-upload" type="file" name="attachments" multiple />
+              <input id="file-upload" type="file" multiple />
             </div>
 
-            <div className="email__btn">
-            <input type="button" value="Send now" />
-          </div>
+            <button
+              type="submit"
+              className="email__btn"
+              name="attachments"
+              onChange={handleAttachmentChange}
+            >
+              Send now
+            </button>
           </form>
         </div>
       </div>
