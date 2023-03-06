@@ -13,12 +13,15 @@ import Card from "./components/Cards/Card";
 import Wedding from "./components/Decoration/Album/Wedding";
 import Prom from "./components/Decoration/Album/Cake";
 import Anniversary from "./components/Decoration/Album/Anniversary";
+import Login from "./components/Login/Login";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
-    <>
+    <AuthProvider>
     
       <Navigation />
+
       <Routes>
         <Route path="/" element={<Home />}></Route>
         
@@ -33,9 +36,12 @@ function App() {
         <Route path="/decoration/wedding" element={<Wedding />}></Route>
         <Route path="/decoration/prom" element={<Prom />}></Route>
         <Route path="/decoration/anniversary" element={<Anniversary />}></Route>
+
+        <Route path="/api/login" element={<Login />} ></Route>
       </Routes>
+      
       <Footer />
-    </>
+    </AuthProvider>
   );
 }
 
