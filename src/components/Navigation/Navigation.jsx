@@ -2,9 +2,12 @@ import React from "react";
 import logo from "../../assets/logo4.png";
 import "./navigation.css";
 import { RxDropdownMenu } from "react-icons/rx";
+import { GrUserFemale } from "react-icons/gr";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../../context/AuthContext";
 
 const Navigation = () => {
+  const { user } = useAuthContext();
   return (
     <nav>
       <Link to={"/"}>
@@ -38,20 +41,20 @@ const Navigation = () => {
             <Link to="/">Подаръци за гости</Link>
           </li> */}
           <li>
-          <Link to="/catering">Кетъринг</Link>
+            <Link to="/catering">Кетъринг</Link>
           </li>
+          {user.email && (
+            <li>
+              <Link to="/api/logout">
+                <GrUserFemale />
+              </Link>
+            </li>
+          )}
           <li>
             <Link to={"/contacts"}>Контакти</Link>
           </li>
         </ul>
       </div>
-      {/* <div className="nav__buttons right-button">
-        <ul>
-          <li>
-            <Link to={"/contacts"}>Контакти</Link>
-          </li>
-        </ul>
-      </div> */}
     </nav>
   );
 };

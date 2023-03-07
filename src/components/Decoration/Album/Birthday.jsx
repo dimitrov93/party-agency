@@ -21,7 +21,13 @@ import img444 from "../../../assets/bd3/4.jpg";
 
 import img51 from "../../../assets/Cage/1.jpg";
 
+import { useAuthContext } from "../../../context/AuthContext";
+import { AiOutlineFileAdd } from "react-icons/ai";
+import { Link, useLocation } from "react-router-dom";
+
 const Birthday = () => {
+  const { user } = useAuthContext();
+  const location = useLocation();
   const galleryImg = [
     {
       img: img1,
@@ -81,6 +87,16 @@ const Birthday = () => {
 
   return (
     <div className="container">
+      {user.email && (
+        <div className="hidden_content">
+          <Link to={`${location.pathname}/add`}>
+            <button className="hidden__btn">
+              <AiOutlineFileAdd />
+            </button>
+          </Link>
+        </div>
+      )}
+
       <h3>ИЗБЕРЕТЕ ОТ НАШИ ГОТОВИ ВИЗИИ</h3>
       {/* <p>
           Ако сте вдъхновени от нашите декори и си представяте и вашия празник
@@ -106,7 +122,10 @@ const Birthday = () => {
         <div className="gallery">
           <Images galleryImg={galleryImg3} />
           <div className="gallery__text">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, corrupti!</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore,
+              corrupti!
+            </p>
           </div>
         </div>
 

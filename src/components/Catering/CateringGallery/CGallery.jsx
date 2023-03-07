@@ -4,10 +4,9 @@ import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const CGallery = ({ gallery }) => {
-  const timerRef = useRef(null)
+  const timerRef = useRef(null);
   const [slideNumber, setSlideNumber] = useState(0);
   const [openModal, setOpenModal] = useState(false);
-  
 
   const modalHandler = (index) => {
     setSlideNumber(index);
@@ -37,8 +36,7 @@ const CGallery = ({ gallery }) => {
       }, 2000);
     }
     return () => clearTimeout(timerRef.current);
-  })
-  
+  });
 
   return (
     <>
@@ -57,21 +55,19 @@ const CGallery = ({ gallery }) => {
         </div>
       )}
 
-    {gallery &&
+      {gallery &&
         gallery.map((x, index) => {
           return (
-            <div>
+            <div key={index}>
               <img
                 src={x.img}
                 alt=""
-                key={index}
-                className='img__focus'
+                className="img__focus"
                 onClick={() => modalHandler(index)}
               />
             </div>
           );
         })}
-
     </>
   );
 };

@@ -130,6 +130,19 @@ body {
   background-color: #4c4c4c;
 }
 
+.hidden_content {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.hidden__btn {
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 
 @media screen and (max-width: 1024px) {
   .container {
