@@ -4,8 +4,14 @@ import Images from "../../../common/Images/Images";
 
 import img1 from "../../../assets/Prom/prom1/1.jpg";
 import img2 from "../../../assets/Prom/prom2/1.jpg";
+import { useAuthContext } from "../../../context/AuthContext";
+import { AiOutlineFileAdd } from "react-icons/ai";
+import { Link, useLocation } from "react-router-dom";
 
 const Prom = () => {
+  const { user } = useAuthContext();
+  const location = useLocation();
+
   const galleryImg = [
     {
       img: img1,
@@ -20,6 +26,15 @@ const Prom = () => {
 
   return (
     <div className="container">
+      {user.email && (
+        <div className="hidden_content">
+          <Link to={`${location.pathname}/add`}>
+            <button className="hidden__btn">
+              <AiOutlineFileAdd />
+            </button>
+          </Link>
+        </div>
+      )}
       <h3>ИЗБЕРЕТЕ ОТ НАШИ ГОТОВИ ВИЗИИ</h3>
       {/* <p>
           Ако сте вдъхновени от нашите декори и си представяте и вашия празник
@@ -42,7 +57,6 @@ const Prom = () => {
             <p>Завършване - Криси</p>
           </div>
         </div>
-
       </div>
     </div>
   );

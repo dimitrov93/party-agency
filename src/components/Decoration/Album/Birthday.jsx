@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./album.css";
 import Images from "../../../common/Images/Images";
+import Images2 from "../../../common/Images/Images2";
 
 import img1 from "../../../assets/bd/1.jpg";
 import img2 from "../../../assets/bd/2.jpg";
@@ -24,10 +25,13 @@ import img51 from "../../../assets/Cage/1.jpg";
 import { useAuthContext } from "../../../context/AuthContext";
 import { AiOutlineFileAdd } from "react-icons/ai";
 import { Link, useLocation } from "react-router-dom";
+import axios from "axios";
 
 const Birthday = () => {
   const { user } = useAuthContext();
   const location = useLocation();
+  const [images, setImages] = useState([]);
+
   const galleryImg = [
     {
       img: img1,
@@ -84,6 +88,17 @@ const Birthday = () => {
       img: img51,
     },
   ];
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/images/birthday")
+      .then((response) => {
+        setImages(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
 
   return (
     <div className="container">
@@ -135,6 +150,17 @@ const Birthday = () => {
             <p>Погача на Кая</p>
           </div>
         </div>
+
+        {/* {images && images.map((x, i) =>{
+          return (
+            <div className="gallery" key={i}>
+            <Images2 galleryImg={x.images} />
+            <div className="gallery__text">
+              <p>{x.title}</p>
+            </div>
+          </div>
+          )
+        })} */}
       </div>
     </div>
   );

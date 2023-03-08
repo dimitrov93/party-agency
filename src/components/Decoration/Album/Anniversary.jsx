@@ -27,9 +27,14 @@ import img29 from "../../../assets/Anniversary/a2/8.jpg";
 import img30 from "../../../assets/Anniversary/a2/9.jpg";
 import img31 from "../../../assets/Anniversary/a2/10.jpg";
 
-
+import { useAuthContext } from "../../../context/AuthContext";
+import { AiOutlineFileAdd } from "react-icons/ai";
+import { Link, useLocation } from "react-router-dom";
 
 const Anniversary = () => {
+  const { user } = useAuthContext();
+  const location = useLocation();
+
   const galleryImg = [
     {
       img: img1,
@@ -105,9 +110,18 @@ const Anniversary = () => {
     },
   ];
 
-
   return (
     <div className="container">
+      {user.email && (
+        <div className="hidden_content">
+          <Link to={`${location.pathname}/add`}>
+            <button className="hidden__btn">
+              <AiOutlineFileAdd />
+            </button>
+          </Link>
+        </div>
+      )}
+
       <h3>ИЗБЕРЕТЕ ОТ НАШИ ГОТОВИ ВИЗИИ</h3>
       {/* <p>
           Ако сте вдъхновени от нашите декори и си представяте и вашия празник
@@ -129,7 +143,6 @@ const Anniversary = () => {
             <p>Lorem ipsum dolor sit amet.</p>
           </div>
         </div>
-
       </div>
     </div>
   );

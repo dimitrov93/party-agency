@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Dropzone from "react-dropzone";
 import axios from "axios";
-import './add.css'
+import "./add.css";
+import { useLocation } from "react-router-dom";
 
 const Add = () => {
   const [title, setTitle] = useState("");
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const location = useLocation();
+  const urlType = location.pathname.split('/')[2]
+  console.log(urlType);
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
   };
@@ -25,25 +29,25 @@ const Add = () => {
     });
 
     axios
-    .post("http://localhost:5000/api/upload", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    })
-    .then((response) => {
-      console.log(response.data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+      .post(`http://localhost:5000/api/upload/${urlType}`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
-
- 
 
   return (
     <div className="container">
       <div className="content__uploader">
         <h1>Image Upload</h1>
+
         <div>
           <label htmlFor="title">Title:</label>
           <input
@@ -58,7 +62,9 @@ const Add = () => {
             {({ getRootProps, getInputProps }) => (
               <div {...getRootProps()}>
                 <input {...getInputProps()} />
-                <fieldset>Drag and drop some files here, or click to select files</fieldset>
+                <fieldset>
+                  Drag and drop some files here, or click to select files
+                </fieldset>
               </div>
             )}
           </Dropzone>

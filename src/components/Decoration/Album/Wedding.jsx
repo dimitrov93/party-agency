@@ -19,9 +19,14 @@ import img14 from "../../../assets/Wedding/14.jpg";
 import img15 from "../../../assets/Wedding/15.jpg";
 import img16 from "../../../assets/Wedding/16.jpg";
 
-
+import { useAuthContext } from "../../../context/AuthContext";
+import { AiOutlineFileAdd } from "react-icons/ai";
+import { Link, useLocation } from "react-router-dom";
 
 const Wedding = () => {
+  const { user } = useAuthContext();
+  const location = useLocation();
+
   const galleryImg = [
     {
       img: img1,
@@ -73,9 +78,17 @@ const Wedding = () => {
     },
   ];
 
-
   return (
     <div className="container">
+      {user.email && (
+        <div className="hidden_content">
+          <Link to={`${location.pathname}/add`}>
+            <button className="hidden__btn">
+              <AiOutlineFileAdd />
+            </button>
+          </Link>
+        </div>
+      )}
       <h3>ИЗБЕРЕТЕ ОТ НАШИ ГОТОВИ ВИЗИИ</h3>
       {/* <p>
           Ако сте вдъхновени от нашите декори и си представяте и вашия празник
@@ -90,7 +103,6 @@ const Wedding = () => {
             <p>Lorem ipsum dolor sit amet.</p>
           </div>
         </div>
-
       </div>
     </div>
   );

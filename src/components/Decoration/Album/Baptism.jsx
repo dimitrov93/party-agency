@@ -54,9 +54,14 @@ import img61 from "../../../assets/Baptism/bp6/1.jpg";
 import img62 from "../../../assets/Baptism/bp6/2.jpg";
 import img63 from "../../../assets/Baptism/bp6/3.jpg";
 import img64 from "../../../assets/Baptism/bp6/4.jpg";
-
+import { useAuthContext } from "../../../context/AuthContext";
+import { AiOutlineFileAdd } from "react-icons/ai";
+import { Link, useLocation } from "react-router-dom";
 
 const Birthday = () => {
+  const { user } = useAuthContext();
+  const location = useLocation();
+
   const galleryImg = [
     {
       img: img1,
@@ -217,6 +222,16 @@ const Birthday = () => {
 
   return (
     <div className="container">
+      {user.email && (
+        <div className="hidden_content">
+          <Link to={`${location.pathname}/add`}>
+            <button className="hidden__btn">
+              <AiOutlineFileAdd />
+            </button>
+          </Link>
+        </div>
+      )}
+
       <h3>ИЗБЕРЕТЕ ОТ НАШИ ГОТОВИ ВИЗИИ</h3>
       {/* <p>
           Ако сте вдъхновени от нашите декори и си представяте и вашия празник
@@ -266,8 +281,6 @@ const Birthday = () => {
             <p>Lorem ipsum dolor sit amet.</p>
           </div>
         </div>
-
-
       </div>
     </div>
   );
