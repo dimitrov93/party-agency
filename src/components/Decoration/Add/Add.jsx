@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Dropzone from "react-dropzone";
 import axios from "axios";
 import "./add.css";
@@ -7,11 +7,9 @@ import { useLocation } from "react-router-dom";
 const Add = () => {
   const [title, setTitle] = useState("");
   const [selectedFiles, setSelectedFiles] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const location = useLocation();
   const urlType = location.pathname.split('/')[2]
-  console.log(urlType);
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
   };

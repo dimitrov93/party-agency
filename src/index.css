@@ -96,6 +96,7 @@ body {
   margin: 0 auto;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
+  min-height: 100vh;
 }
 
 .btn {
@@ -143,6 +144,14 @@ body {
   cursor: pointer;
 }
 
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 2rem;
+}
 
 @media screen and (max-width: 1024px) {
   .container {

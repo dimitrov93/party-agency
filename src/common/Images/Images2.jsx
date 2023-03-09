@@ -4,7 +4,6 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import "./images.css";
 
 const Images = ({ galleryImg }) => {
-  console.log(galleryImg[0]);
   const timerRef = useRef(null);
   const [slideNumber, setSlideNumber] = useState(0);
   const [openModal, setOpenModal] = useState(false);

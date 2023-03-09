@@ -86,7 +86,6 @@
 
 .gallery {
   position: relative;
-
 }
 
 .gallery img:hover {
@@ -113,6 +112,7 @@
   text-align: center;
   user-select: none;
 }
+
 @media (max-width: 1200px) {
 
 }
