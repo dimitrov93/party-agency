@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import './images.css'
+import "./images.css";
 
 const Images = ({ galleryImg }) => {
   const timerRef = useRef(null);
   const [slideNumber, setSlideNumber] = useState(0);
   const [openModal, setOpenModal] = useState(false);
-  console.log(galleryImg);
   const handleOpenModal = (index) => {
     setSlideNumber(index);
     setOpenModal(true);
@@ -41,30 +40,54 @@ const Images = ({ galleryImg }) => {
 
   return (
     <>
-   {openModal && (
-      <div className="slider__wrap">
-        {" "}
-        <AiOutlineCloseCircle
-          className="btnClose"
-          onClick={handleCloseModal}
-        />
-        <BsArrowLeftCircle className="btnPrev" onClick={prevSlide} />
-        <BsArrowRightCircle className="btnNext" onClick={nextSlide} />
-        <div className="fullscreen__img">
-          <img src={galleryImg[slideNumber].img} alt="" />
+      {openModal && (
+        <div className="slider__wrap">
+          {" "}
+          <AiOutlineCloseCircle
+            className="btnClose"
+            onClick={handleCloseModal}
+          />
+          <BsArrowLeftCircle className="btnPrev" onClick={prevSlide} />
+          <BsArrowRightCircle className="btnNext" onClick={nextSlide} />
+          <div className="fullscreen__img">
+            {galleryImg[0].filename ? 
+                       <img
+                       src={`data:${galleryImg[slideNumber].contentType};base64,${galleryImg[slideNumber].data}`}
+                       alt={galleryImg[0].filename}
+                       />
+            :
+            <div className="fullscreen__img">
+            <img src={galleryImg[slideNumber].img} alt="" />
+          </div>
+            }
+ 
+          </div>
         </div>
-      </div>
-    )}
+      )}
 
+      {galleryImg[0].filename ? 
+            <img
+            key={galleryImg[0].filename}
+            src={`data:${galleryImg[0].contentType};base64,${galleryImg[0].data}`}
+            alt={galleryImg[0].filename}
+            className="static"
+            onClick={() => {
+              handleOpenModal(0);
+            }}
+          />
+      :
       <img
+        key={galleryImg[0].img}
         src={galleryImg[0].img}
-        alt=""
+        alt={galleryImg[0].img}
         className="static"
         onClick={() => {
           handleOpenModal(0);
         }}
       />
-  </>
+    }
+
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Dropzone from "react-dropzone";
 import axios from "axios";
 import "./add.css";
@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 const Add = () => {
   const [title, setTitle] = useState("");
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const [showMessage, setShowMessage] = useState(false);
 
   const location = useLocation();
   const urlType = location.pathname.split('/')[2]
@@ -26,25 +27,48 @@ const Add = () => {
       formData.append("images[]", file);
     });
 
-    axios
-      .post(`http://localhost:5000/api/upload/${urlType}`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-        window.location.reload();
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    try {
+      const response = await axios.post(
+        `http://localhost:5000/api/upload/${urlType}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+  
+      console.log(response);
+      
+      // clear the fields
+      setTitle("");
+      setSelectedFiles([]);
+      setShowMessage(true);
+
+    } catch (error) {
+      console.error(error);
+    }
   };
+
+  useEffect(() => {
+    // hide message after 3 seconds
+    const timeoutId = setTimeout(() => {
+      setShowMessage(false);
+    }, 3000);
+    
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [showMessage]);
+
 
   return (
     <div className="container">
       <div className="content__uploader">
         <h1>Image Upload</h1>
+
+        {showMessage && <p>Upload successful!</p>}
+
 
         <div>
           <label htmlFor="title">Title:</label>

@@ -18,32 +18,32 @@ const Decoration = () => {
 
             <div className="list__card">
                 <img src={img} alt="" className="list__img" />
-                <Link to={'/decoration/baptism'} >
                 <h4 className="list__title">Кръщене</h4>
+                <Link to={'/decoration/baptism'} >
                 <button className='green__btn'>Разгледай</button>
                 </Link>
             </div>
 
             <div className="list__card">
                 <img src={img} alt="" className="list__img" />
-                <Link to={'/decoration/wedding'} >
                 <h4 className="list__title">Сватба</h4>
+                <Link to={'/decoration/wedding'} >
                 <button className='green__btn'>Разгледай</button>
                 </Link>
             </div>
 
             <div className="list__card">
                 <img src={img} alt="" className="list__img" />
-                <Link to={'/decoration/prom'}>
                 <h4 className="list__title">Абитуриентски бал</h4>
+                <Link to={'/decoration/prom'}>
                 <button className='green__btn'>Разгледай</button>
                 </Link>
             </div>
 
             <div className="list__card">
                 <img src={img} alt="" className="list__img" />
-                <Link to={'/decoration/anniversary'}>
                 <h4 className="list__title">Ябилей</h4>
+                <Link to={'/decoration/anniversary'}>
                 <button className='green__btn'>Разгледай</button>
                 </Link>
             </div>

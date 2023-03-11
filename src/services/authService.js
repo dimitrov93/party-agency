@@ -1,14 +1,12 @@
+import { AUTH_URL } from "../utils/apiConfig";
 import * as request from "./requester";
 
-
-const baseUrl = "http://localhost:5000/api/auth";
-
 export const login = (email, password) =>
-  request.post(`${baseUrl}/login`, { email, password });
+  request.post(`${AUTH_URL}/login`, { email, password });
 
 export const logout = async (accessToken) => {
   try {
-    const response = await fetch(`${baseUrl}/logout`, {
+    const response = await fetch(`${AUTH_URL}/logout`, {
       headers: {
         "X-Authorization": accessToken,
       },
