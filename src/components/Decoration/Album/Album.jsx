@@ -61,12 +61,16 @@ const Album = () => {
             return (
               <div className="gallery" key={i}>
                 <Images galleryImg={x.images} />
-                <div className="gallery__btns">
-                  <Link to={`${pathname}/${x._id}/edit`}>
-                    <button>Edit</button>
-                  </Link>
-                  <button onClick={() => onSubmitDelete(x._id)}>Delete</button>
-                </div>
+                {user.email && (
+                  <div className="gallery__btns">
+                    <Link to={`${pathname}/${x._id}/edit`}>
+                      <button>Edit</button>
+                    </Link>
+                    <button onClick={() => onSubmitDelete(x._id)}>
+                      Delete
+                    </button>
+                  </div>
+                )}
                 <div className="gallery__text">
                   <p>{x.title}</p>
                 </div>
