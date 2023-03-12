@@ -6,3 +6,4 @@
 
 export const BASE_URL = "https://party-agency-nodejs.onrender.com/api/images";
 export const AUTH_URL = "https://party-agency-nodejs.onrender.com/api/auth";
+export const UPLOAD_URL = "https://party-agency-nodejs.onrender.com/api";

@@ -3,6 +3,9 @@ import Dropzone from "react-dropzone";
 import axios from "axios";
 import "./add.css";
 import { useLocation } from "react-router-dom";
+import { UPLOAD_URL } from "../../../utils/apiConfig";
+
+
 
 const Add = () => {
   const [title, setTitle] = useState("");
@@ -29,7 +32,7 @@ const Add = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/upload/${urlType}`,
+        `${UPLOAD_URL}/${urlType}`,
         formData,
         {
           headers: {
