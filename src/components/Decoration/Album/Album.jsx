@@ -15,7 +15,7 @@ const Album = () => {
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}/${albumType}`)
+      .get(`${BASE_URL}/images/${albumType}`)
       .then((response) => {
         setImages(response.data);
       })
@@ -30,7 +30,7 @@ const Album = () => {
     );
     if (confirm) {
       axios
-        .delete(`${BASE_URL}/${albumType}/${id}/delete`)
+        .delete(`${BASE_URL}/images/${albumType}/${id}/delete`)
         .then((res) => {
           console.log(res);
           setImages((prevImagesData) =>
