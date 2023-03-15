@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import * as URL from "../../../utils/apiConfig";
 import { useNavigate, useParams } from "react-router-dom";
+import './edit.css'
 
 const Edit = () => {
   const [title, setTitle] = useState("");
@@ -13,7 +14,7 @@ const Edit = () => {
       .then(res => {
         setTitle(res.data.title)
       })
-    }, [])
+    }, [id, albumType])
     
     const onUpdate = (e) => {
         try {
@@ -31,7 +32,7 @@ const Edit = () => {
       };
   return (
     <div className="container">
-      <div >
+      <div className="edit__ctn">
         <label htmlFor="title">Title:</label>
         <input
           type="text"
@@ -39,8 +40,8 @@ const Edit = () => {
           value={title}
           onChange={handleTitleChange}
           />
+      <button className="edit__btn" onClick={onUpdate} >Update</button>
       </div>
-      <button onClick={onUpdate} >Update</button>
 
     </div>
   );

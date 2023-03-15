@@ -5,15 +5,13 @@ import "./add.css";
 import { useLocation } from "react-router-dom";
 import { BASE_URL } from "../../../utils/apiConfig";
 
-
-
 const Add = () => {
   const [title, setTitle] = useState("");
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [showMessage, setShowMessage] = useState(false);
 
   const location = useLocation();
-  const urlType = location.pathname.split('/')[2]
+  const urlType = location.pathname.split("/")[2];
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
   };
@@ -31,23 +29,16 @@ const Add = () => {
     });
 
     try {
-      const response = await axios.post(
-        `${BASE_URL}/upload/${urlType}`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-  
-      console.log(response);
-      
+      await axios.post(`${BASE_URL}/upload/${urlType}`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
       // clear the fields
       setTitle("");
       setSelectedFiles([]);
       setShowMessage(true);
-
     } catch (error) {
       console.error(error);
     }
@@ -58,12 +49,11 @@ const Add = () => {
     const timeoutId = setTimeout(() => {
       setShowMessage(false);
     }, 3000);
-    
+
     return () => {
       clearTimeout(timeoutId);
     };
   }, [showMessage]);
-
 
   return (
     <div className="container">
@@ -71,7 +61,6 @@ const Add = () => {
         <h1>Image Upload</h1>
 
         {showMessage && <p>Upload successful!</p>}
-
 
         <div>
           <label htmlFor="title">Title:</label>

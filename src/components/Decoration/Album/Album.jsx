@@ -32,7 +32,6 @@ const Album = () => {
       axios
         .delete(`${BASE_URL}/images/${albumType}/${id}/delete`)
         .then((res) => {
-          console.log(res);
           setImages((prevImagesData) =>
             prevImagesData.filter((imageData) => imageData._id !== id)
           );
