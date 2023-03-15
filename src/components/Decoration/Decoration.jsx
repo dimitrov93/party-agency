@@ -42,7 +42,7 @@ const Decoration = () => {
 
             <div className="list__card">
                 <img src={img} alt="" className="list__img" />
-                <h4 className="list__title">Ябилей</h4>
+                <h4 className="list__title">Юбилей</h4>
                 <Link to={'/decoration/anniversary'}>
                 <button className='green__btn'>Разгледай</button>
                 </Link>

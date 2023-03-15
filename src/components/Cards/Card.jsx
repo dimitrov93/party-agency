@@ -135,9 +135,7 @@ const Card = () => {
         </div>
 
         <div className="card__items">
-          <div className="card__img">
-            {/* <img src={mainCard} alt="" /> */}
-          </div>
+          <div className="card__img">{/* <img src={mainCard} alt="" /> */}</div>
 
           <div className="card__text">
             <p>
@@ -162,27 +160,27 @@ const Card = () => {
 
       <div className="card__footer">
         <div className="card__footer__container gallery">
+
+          <Images galleryImg={cardsImgs} />
+          <div className="gallery__text">
+            <p>Покани за гости</p>
+          </div>
+        </div>
+
+        <div className="card__footer__container gallery">
           <Images galleryImg={tableImgs} />
           <div className="gallery__text">
-            <p>Lorem ipsum dolor sit amet1.</p>
+            <p>Картички с имена</p>
           </div>
         </div>
 
         <div className="card__footer__container gallery">
           <Images galleryImg={tabloImgs} />
           <div className="gallery__text">
-            <p>Lorem ipsum dolor sit amet2.</p>
+            <p>Настанителни табели</p>
           </div>
         </div>
-
-        
-        <div className="card__footer__container gallery">
-          <Images galleryImg={cardsImgs} />
-          <div className="gallery__text">
-            <p>Lorem ipsum dolor sit amet3.</p>
-          </div>
-        </div>
-{/* 
+        {/* 
         <div className="card__footer__container">
           <Tablo galleryImg={tabloImgs} />
         </div>

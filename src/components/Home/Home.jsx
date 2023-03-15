@@ -20,7 +20,7 @@ const Home = () => {
         <div className="article__right slide-in-right">
           <img src={pic2} alt="" className="article__logo right " />
           <div className="article__header">
-            <h3>Направете всеки Вас спомен красив!</h3>
+            <h3>Направете всеки Ваш спомен красив!</h3>
           </div>
         </div>
 

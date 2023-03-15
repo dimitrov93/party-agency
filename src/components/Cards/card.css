@@ -46,17 +46,17 @@
 
 
 div.card__body > div:nth-child(1) > div.card__img {
-    background-image: url('../../assets/Cards/table/main.jpg');
+    background-image: url('../../assets/Cards/cards/main.jpg');
     width: 40%;
 }
 
 div.card__body > div:nth-child(2) > div.card__img {
-    background-image: url('../../assets/Cards/tablo/main.jpg');
+    background-image: url('../../assets/Cards/table/main.jpg');
     width: 35%;
 }
 
 div.card__body > div:nth-child(3) > div.card__img {
-    background-image: url('../../assets/Cards/cards/main.jpg');
+    background-image: url('../../assets/Cards/tablo/main.jpg');
     width: 48%;
 }
 

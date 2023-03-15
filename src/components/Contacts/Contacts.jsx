@@ -77,7 +77,7 @@ const Contacts = () => {
           </p>
           <p className="contacts__information_item">
             Присъединете се:
-            <Link to={"https://facebook.com"}>
+            <Link to={"https://www.facebook.com/flowertalesgt"}>
               Facebook: <FaFacebookF color="#3b5998" />{" "}
             </Link>
             <Link to={"https://instagram.com"}>
