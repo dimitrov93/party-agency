@@ -1,6 +1,6 @@
 import React from 'react'
 import './decoration.css'
-import img from '../../assets/logo6.png'
+import img from '../../assets/DecorationLogo.png'
 import {Link} from 'react-router-dom'
 
 const Decoration = () => {

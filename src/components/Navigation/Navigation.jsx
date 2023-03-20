@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/logo4.png";
+import logo from "../../assets/logo.png";
 import "./navigation.css";
 import { RxDropdownMenu } from "react-icons/rx";
 import { GrUserFemale } from "react-icons/gr";

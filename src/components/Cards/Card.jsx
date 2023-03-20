@@ -1,6 +1,11 @@
 import React from "react";
 import "./card.css";
 import Images from "../../common/Images/Images";
+import { useAuthContext } from "../../context/AuthContext";
+import { Link, useLocation, useParams } from "react-router-dom";
+import { AiOutlineFileAdd } from "react-icons/ai";
+
+
 
 // Table
 import table1 from "../../assets/Cards/table/1.jpg";
@@ -28,6 +33,10 @@ import card3 from "../../assets/Cards/cards/3.jpg";
 import footerCard from "../../assets/Cards/cards/footer.jpg";
 
 const Card = () => {
+  const { user } = useAuthContext();
+  const { pathname } = useLocation();
+
+
   const tabloImgs = [
     {
       img: footerTablo,
@@ -96,6 +105,17 @@ const Card = () => {
 
   return (
     <section className="container">
+            {user.email && (
+        <div className="hidden_content">
+          <Link to={`${pathname}/add`}>
+            <button className="hidden__btn">
+              <AiOutlineFileAdd />
+            </button>
+          </Link>
+        </div>
+      )}
+
+
       <div className="card__header">
         <div className="line"></div>
         <div className="text">
@@ -165,6 +185,16 @@ const Card = () => {
           <div className="gallery__text">
             <p>Покани за гости</p>
           </div>
+          {user.email && (
+                  <div className="gallery__btns">
+                    <Link>
+                      <button>Edit</button>
+                    </Link>
+                    <button>
+                      Delete
+                    </button>
+                  </div>
+                )}
         </div>
 
         <div className="card__footer__container gallery">
@@ -172,6 +202,16 @@ const Card = () => {
           <div className="gallery__text">
             <p>Картички с имена</p>
           </div>
+          {user.email && (
+                  <div className="gallery__btns">
+                    <Link>
+                      <button>Edit</button>
+                    </Link>
+                    <button>
+                      Delete
+                    </button>
+                  </div>
+                )}
         </div>
 
         <div className="card__footer__container gallery">
@@ -179,6 +219,16 @@ const Card = () => {
           <div className="gallery__text">
             <p>Настанителни табели</p>
           </div>
+          {user.email && (
+                  <div className="gallery__btns">
+                    <Link>
+                      <button>Edit</button>
+                    </Link>
+                    <button>
+                      Delete
+                    </button>
+                  </div>
+                )}
         </div>
         {/* 
         <div className="card__footer__container">

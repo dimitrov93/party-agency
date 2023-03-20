@@ -84,7 +84,7 @@ h5 {
 /* Set default font and background color */
 body {
   min-height: 100vh;
-  background: url('./assets/background2.jpg');
+  background: url('./assets/background.jpg');
   /* background-color: #f3f3f3; */
   background-repeat: no-repeat;
   background-size: cover;
