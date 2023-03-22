@@ -1,0 +1,29 @@
+.content__uploader {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.content__uploader input {
+    background: transparent;
+    border: 1px solid black;
+
+
+}
+
+.content__uploader select {
+    background: transparent;
+    border: 1px solid black;
+}
+
+.upload__alligment {
+    display: flex;
+}
+
+.content__uploader fieldset {
+    height: 200px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

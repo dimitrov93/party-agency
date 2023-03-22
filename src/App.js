@@ -11,6 +11,7 @@ import Login from "./components/Login/Login";
 import Logout from "./components/Logout/Logout";
 import { AuthProvider } from "./context/AuthContext";
 import Add from "./components/Decoration/Add/Add";
+import AddCard from "./components/Cards/Add/Add";
 import Edit from "./components/Decoration/Edit/Edit";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/contacts" element={<Contacts />}></Route>
         <Route path="/catering" element={<Catering />}></Route>
         <Route path="/cards" element={<Card />}></Route>
+        <Route path="/cards/add" element={<AddCard />}></Route>
 
         <Route path="/decoration" element={<Decoration />}></Route>
         <Route path="/decoration/:albumType" element={<Album />} />

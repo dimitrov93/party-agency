@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./card.css";
 import Images from "../../common/Images/Images";
 import { useAuthContext } from "../../context/AuthContext";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { AiOutlineFileAdd } from "react-icons/ai";
-
-
+import { BASE_URL } from "../../utils/apiConfig";
+import axios from "axios";
 
 // Table
 import table1 from "../../assets/Cards/table/1.jpg";
@@ -35,7 +35,32 @@ import footerCard from "../../assets/Cards/cards/footer.jpg";
 const Card = () => {
   const { user } = useAuthContext();
   const { pathname } = useLocation();
+  const [cards, setCards] = useState([]);
+  const [invitations, setInvitations] = useState([]);
+  const [tables, setTables] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    const fetchInvitations = async () => {
+      try {
+        const [res1, res2, res3] = await Promise.all([
+          axios.get(`${BASE_URL}/images/invitations`),
+          axios.get(`${BASE_URL}/images/tables`),
+          axios.get(`${BASE_URL}/images/cards`),
+        ]);
+
+        setInvitations(res1.data);
+        setTables(res2.data);
+        setCards(res3.data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchInvitations();
+  }, []);
 
   const tabloImgs = [
     {
@@ -105,7 +130,7 @@ const Card = () => {
 
   return (
     <section className="container">
-            {user.email && (
+      {user.email && (
         <div className="hidden_content">
           <Link to={`${pathname}/add`}>
             <button className="hidden__btn">
@@ -114,7 +139,6 @@ const Card = () => {
           </Link>
         </div>
       )}
-
 
       <div className="card__header">
         <div className="line"></div>
@@ -180,38 +204,81 @@ const Card = () => {
 
       <div className="card__footer">
         <div className="card__footer__container gallery">
-
-          <Images galleryImg={cardsImgs} />
-          <div className="gallery__text">
-            <p>Покани за гости</p>
-          </div>
-          {user.email && (
-                  <div className="gallery__btns">
-                    <Link>
-                      <button>Edit</button>
-                    </Link>
-                    <button>
-                      Delete
-                    </button>
-                  </div>
-                )}
+          {isLoading ? (
+            <div>Loading...</div>
+          ) : (
+            <>
+              <Images galleryImg={invitations[0].images} />
+              <div className="gallery__text">
+                <p>{invitations[0].title}</p>
+              </div>
+              {user.email && (
+                <div className="gallery__btns">
+                  <Link>
+                    <button>Edit</button>
+                  </Link>
+                  <button>Delete</button>
+                </div>
+              )}
+            </>
+          )}
         </div>
 
         <div className="card__footer__container gallery">
+          {isLoading ? (
+            <div>Loading...</div>
+          ) : (
+            <>
+              <Images galleryImg={tables[0].images} />
+              <div className="gallery__text">
+                <p>{tables[0].title}</p>
+              </div>
+              {user.email && (
+                <div className="gallery__btns">
+                  <Link>
+                    <button>Edit</button>
+                  </Link>
+                  <button>Delete</button>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+
+        <div className="card__footer__container gallery">
+          {isLoading ? (
+            <div>Loading...</div>
+          ) : (
+            <>
+              <Images galleryImg={cards[0].images} />
+              <div className="gallery__text">
+                <p>{cards[0].title}</p>
+              </div>
+              {user.email && (
+                <div className="gallery__btns">
+                  <Link>
+                    <button>Edit</button>
+                  </Link>
+                  <button>Delete</button>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+
+        {/* <div className="card__footer__container gallery">
           <Images galleryImg={tableImgs} />
           <div className="gallery__text">
             <p>Картички с имена</p>
           </div>
           {user.email && (
-                  <div className="gallery__btns">
-                    <Link>
-                      <button>Edit</button>
-                    </Link>
-                    <button>
-                      Delete
-                    </button>
-                  </div>
-                )}
+            <div className="gallery__btns">
+              <Link>
+                <button>Edit</button>
+              </Link>
+              <button>Delete</button>
+            </div>
+          )}
         </div>
 
         <div className="card__footer__container gallery">
@@ -220,23 +287,13 @@ const Card = () => {
             <p>Настанителни табели</p>
           </div>
           {user.email && (
-                  <div className="gallery__btns">
-                    <Link>
-                      <button>Edit</button>
-                    </Link>
-                    <button>
-                      Delete
-                    </button>
-                  </div>
-                )}
-        </div>
-        {/* 
-        <div className="card__footer__container">
-          <Tablo galleryImg={tabloImgs} />
-        </div>
-
-        <div className="card__footer__container">
-          <Invitations galleryImg={cardsImgs} />
+            <div className="gallery__btns">
+              <Link>
+                <button>Edit</button>
+              </Link>
+              <button>Delete</button>
+            </div>
+          )}
         </div> */}
       </div>
     </section>
