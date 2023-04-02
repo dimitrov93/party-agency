@@ -1,5 +1,8 @@
-// Local
-// export const BASE_URL = "http://localhost:5000/api";
+// "https://party-agency-nodejs.onrender.com/api";
 
-// Render
-export const BASE_URL = "https://party-agency-nodejs.onrender.com/api";
+let BASE_URL = "http://localhost:5000/api";
+if (window.location.hostname !== 'localhost') {
+  BASE_URL = `http://nodejs.fairy.dimitrov93.eu/api`;
+}
+
+export { BASE_URL };
