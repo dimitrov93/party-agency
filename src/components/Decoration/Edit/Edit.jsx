@@ -1,24 +1,33 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import * as URL from "../../../utils/apiConfig";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import './edit.css'
 
 const Edit = () => {
   const [title, setTitle] = useState("");
     const { albumType, id } = useParams();
     const navigate = useNavigate()
-    
+    const location = useLocation();
+    const decodedLocation = decodeURIComponent(location.pathname).split('/');
+    const type = decodedLocation[1]
+    const album = decodedLocation[2]
+    const oldAlbumName = decodedLocation[3]
+
     useEffect(() => {
-      axios.get(`${URL.BASE_URL}/images/${albumType}/${id}`)
-      .then(res => {
-        setTitle(res.data.title)
+      axios.get(`${URL.BASE_URL}/uploads/images/${type}/${album}/${oldAlbumName}/`, {
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8'
+        }
       })
-    }, [id, albumType])
+      .then(res => {
+        setTitle(res.data[0].folder)
+      })
+    }, [])
     
     const onUpdate = (e) => {
         try {
-            axios.put(`${URL.BASE_URL}/images/${albumType}/${id}/edit`, {title: title})  
+            axios.put(`${URL.BASE_URL}/uploads/images/${type}/${album}/${oldAlbumName}/`, {newAlbumName: title})  
                 .then(res => {
                     navigate(`/decoration/${albumType}`)
                 })     
@@ -33,7 +42,7 @@ const Edit = () => {
   return (
     <div className="container">
       <div className="edit__ctn">
-        <label htmlFor="title">Title:</label>
+        <label htmlFor="title">Име на темата:</label>
         <input
           type="text"
           id="title"

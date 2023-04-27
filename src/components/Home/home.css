@@ -203,15 +203,15 @@ h2,h3 {
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 576px) {
     .home__title {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
     }
 
     .article__header h2 {
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
       
     .article__header h3 {
-        font-size: 1rem;
+        font-size: 1.5rem;
       }
 
       .article__left:nth-last-child(1)  {

@@ -1,7 +1,7 @@
 .birthday__wrapper {
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    gap: 24px;
+    gap: 1rem;
 }
 
 .birthday__gallery {
@@ -33,11 +33,46 @@
 
 .gallery__btns button {
     background-color: transparent;
-    border: 1px solid black;
+    border: 1px solid var(--clr-brown);
+    border-radius: 1rem;
     padding: 4px;
     cursor: pointer;
     width: 100px;
+    color: var(--clr-ligter-brown);
 }
+
+.gallery__btns button:hover {
+    border: 1px solid var(--clr-ligter-brown);
+    color: var(--clr-brown);
+
+}
+
+.header__menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__menu ul {
+    display: flex;
+    gap: 0.3rem;
+}
+.header__menu ul li {
+    padding: .3rem;
+    color: var(--clr-brown);
+    font-size: 1rem;
+}
+
+.header__menu ul li:hover {
+    color: var(--clr-ligter-brown);
+    cursor: pointer;
+}
+
+
+.album__header {
+    color: var(--clr-brown);
+}
+
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (max-width: 1200px) {
@@ -51,24 +86,31 @@
         justify-content: center;
         justify-self: center;
     }
-    
 }
 
 @media (max-width: 992px) { 
 
    }
   @media (max-width: 768px) { 
+    .birthday__wrapper {
+        grid-template-columns: repeat(2,1fr);
+    }
 
+    .header__menu ul li {
+        padding: .1rem;
+        font-size: .9rem;
+    }
    }
   
   @media (max-width: 576px) { 
-
-  }
-  
-  @media (max-width: 280px) { 
-
     .birthday__wrapper {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
+
+    .header__menu ul li {
+        padding: 0.2rem;
+        font-size: .45rem;
+    }
+    
   }

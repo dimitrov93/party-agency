@@ -6,14 +6,16 @@ import { useLocation } from "react-router-dom";
 import { BASE_URL } from "../../../utils/apiConfig";
 
 const Add = () => {
-  const [title, setTitle] = useState("");
+  const [albumName, setAlbumName] = useState("");
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [showMessage, setShowMessage] = useState(false);
 
   const location = useLocation();
-  const urlType = location.pathname.split("/")[2];
-  const handleTitleChange = (event) => {
-    setTitle(event.target.value);
+  const type = location.pathname.split("/")[1];
+  const album = location.pathname.split("/")[2];
+
+  const handleAlbumNameChange = (event) => {
+    setAlbumName(event.target.value);
   };
 
   const handleDrop = (files) => {
@@ -22,21 +24,23 @@ const Add = () => {
 
   const handleUpload = async () => {
     const formData = new FormData();
-    formData.append("title", title);
+    formData.append("type", type);
+    formData.append("album", album);
+    formData.append("albumName", albumName);
 
     selectedFiles.forEach((file) => {
-      formData.append("images[]", file);
+      formData.append("file", file);
     });
 
     try {
-      await axios.post(`${BASE_URL}/upload/${urlType}`, formData, {
+      await axios.post(`${BASE_URL}/uploads/images/`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
 
       // clear the fields
-      setTitle("");
+      setAlbumName("");
       setSelectedFiles([]);
       setShowMessage(true);
     } catch (error) {
@@ -63,12 +67,12 @@ const Add = () => {
         {showMessage && <p>Upload successful!</p>}
 
         <div>
-          <label htmlFor="title">Title:</label>
+          <label htmlFor="albumName">Album name:</label>
           <input
             type="text"
-            id="title"
-            value={title}
-            onChange={handleTitleChange}
+            id="albumName"
+            value={albumName}
+            onChange={handleAlbumNameChange}
           />
         </div>
         <div>

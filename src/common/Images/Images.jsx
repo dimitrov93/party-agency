@@ -3,11 +3,12 @@ import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import "./images.css";
 
-const Images = ({ galleryImg }) => {
+const Images = ({ gallery, isStatic }) => {
   const timerRef = useRef(null);
   const [slideNumber, setSlideNumber] = useState(0);
   const [openModal, setOpenModal] = useState(false);
-  const handleOpenModal = (index) => {
+
+  const modalHandler = (index) => {
     setSlideNumber(index);
     setOpenModal(true);
   };
@@ -17,15 +18,11 @@ const Images = ({ galleryImg }) => {
   };
 
   const prevSlide = () => {
-    slideNumber === 0
-      ? setSlideNumber(galleryImg.length - 1)
-      : setSlideNumber(slideNumber - 1);
+    setSlideNumber((slideNumber) => (slideNumber === 0 ? gallery?.length - 1 : slideNumber - 1));
   };
 
   const nextSlide = () => {
-    slideNumber + 1 === galleryImg.length
-      ? setSlideNumber(0)
-      : setSlideNumber(slideNumber + 1);
+    setSlideNumber((slideNumber) => (slideNumber + 1 === gallery?.length ? 0 : slideNumber + 1));
   };
 
   useEffect(() => {
@@ -34,7 +31,6 @@ const Images = ({ galleryImg }) => {
         nextSlide();
       }, 2000);
     }
-
     return () => clearTimeout(timerRef.current);
   });
 
@@ -42,51 +38,29 @@ const Images = ({ galleryImg }) => {
     <>
       {openModal && (
         <div className="slider__wrap">
-          {" "}
-          <AiOutlineCloseCircle
-            className="btnClose"
-            onClick={handleCloseModal}
-          />
+          <AiOutlineCloseCircle className="btnClose" onClick={handleCloseModal} />
           <BsArrowLeftCircle className="btnPrev" onClick={prevSlide} />
           <BsArrowRightCircle className="btnNext" onClick={nextSlide} />
           <div className="fullscreen__img">
-            {galleryImg[0].filename ? 
-                       <img
-                       src={`data:${galleryImg[slideNumber].contentType};base64,${galleryImg[slideNumber].data}`}
-                       alt={galleryImg[0].filename}
-                       />
-            :
-            <div className="fullscreen__img">
-            <img src={galleryImg[slideNumber].img} alt="" />
-          </div>
-            }
- 
+            {gallery?.[slideNumber]?.url && <img src={gallery[slideNumber].url} alt="" />}
           </div>
         </div>
       )}
 
-      {galleryImg[0].filename ? 
-            <img
-            key={galleryImg[0].filename}
-            src={`data:${galleryImg[0].contentType};base64,${galleryImg[0].data}`}
-            alt={galleryImg[0].filename}
-            className="static"
-            onClick={() => {
-              handleOpenModal(0);
-            }}
-          />
-      :
-      <img
-        key={galleryImg[0].img}
-        src={galleryImg[0].img}
-        alt={galleryImg[0].img}
-        className="static"
-        onClick={() => {
-          handleOpenModal(0);
-        }}
-      />
-    }
-
+      {isStatic ? (
+        <img
+          src={gallery?.[0]?.url}
+          alt={gallery?.[0]?.url}
+          className="static"
+          onClick={() => modalHandler(0)}
+        />
+      ) : (
+        gallery?.map((x, index) => (
+          <div key={index}>
+            <img src={x?.url} alt="" className="img__focus" onClick={() => modalHandler(index)} />
+          </div>
+        ))
+      )}
     </>
   );
 };

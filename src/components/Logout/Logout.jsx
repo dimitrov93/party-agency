@@ -5,23 +5,23 @@ import { AuthContext } from "../../context/AuthContext";
 import * as authService from "../../services/authService";
 
 const Logout = () => {
-    const navigate = useNavigate();
-    const { user, userLogout } = useContext(AuthContext);
-  
-    useEffect(() => {
-      authService
-        .logout(user.accessToken)
-        .then(() => {
-          userLogout();
-          navigate("/");
-        })
-        .catch((err) => {
-          console.log(err);
-          navigate("/error");
-        });
-    });
-  
-    return null;
-  };
-  
-  export default Logout;
+  const navigate = useNavigate();
+  const { userLogout } = useContext(AuthContext);
+  useEffect(() => {
+    userLogout();
+    navigate("/");
+    // authService.logout()
+    //   .then(() => {
+    //     // userLogout();
+    //     // navigate("/");
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     navigate("/error");
+    //   });
+  });
+
+  return null;
+};
+
+export default Logout;

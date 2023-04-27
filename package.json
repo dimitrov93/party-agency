@@ -2,7 +2,7 @@
   "name": "party-agency",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://faity-tale.bg",
+  "homepage": "https://fairy-tale.bg",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

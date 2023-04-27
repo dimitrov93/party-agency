@@ -1,56 +1,29 @@
-import React from "react";
 import "./catering.css";
+import React, { useEffect, useState } from "react";
 import main from "../../assets/Catering/main.jpg";
-import img1 from "../../assets/Catering/1.jpg";
-import img2 from "../../assets/Catering/2.jpg";
-import img3 from "../../assets/Catering/3.jpg";
-import img4 from "../../assets/Catering/4.jpg";
-import img5 from "../../assets/Catering/5.jpg";
-import img6 from "../../assets/Catering/6.jpg";
-import img7 from "../../assets/Catering/7.jpg";
-import img8 from "../../assets/Catering/8.jpg";
-import img9 from "../../assets/Catering/9.jpg";
-import img10 from "../../assets/Catering/10.jpg";
-import CGallery from "./CateringGallery/CGallery";
+import Images from "../../common/Images/Images";
+import { getCatering } from "../../services/cateringService";
+
 
 const Catering = () => {
-    const images = [
-        {
-            img: img1
-        },
-        {
-            img: img2
-        },
-        {
-            img: img3
-        },
-        {
-            img: img4
-        },
-        {
-            img: img5
-        },
-        {
-            img: img6
-        },
-        {
-            img: img7
-        },
-        {
-            img: img8
-        },
-        {
-            img: img9
-        },
-        {
-            img: img10
-        },
+  const [catering, setCatering] = useState([]);
 
-    ]
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = await getCatering();
+        setCatering(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchData();
+  }, []);
+  
+
   return (
     <section className="container">
       <div className="catering">
-
         <div className="catering__img">
           <img src={main} alt="" />
         </div>
@@ -75,15 +48,12 @@ const Catering = () => {
       </div>
 
       <div className="catering__images">
-        <CGallery gallery={images} />
-        {/* {images.map(x => {
-            return (
-                <img src={x.img} alt="" />
-            )
-        })} */}
+        {catering && catering.map((x,i) => {
+          return (
+            <Images key={i} gallery={x.images} isStatic={false} />
+          )
+        })}
 
-        
-        
       </div>
     </section>
   );

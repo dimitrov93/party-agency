@@ -6,23 +6,26 @@ import { useLocation } from "react-router-dom";
 import { BASE_URL } from "../../../utils/apiConfig";
 
 const Add = () => {
-  const [title, setTitle] = useState("Покани за гости");
-  const [card, setCard] = useState("");
+  const [album, setAlbum] = useState("cards");
+  const [albumName, setAlbumName] = useState("cards");
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [showMessage, setShowMessage] = useState(false);
 
   const location = useLocation();
-  const urlType = location.pathname.split("/")[2];
+  const type = location.pathname.split("/")[1];
 
+  console.log(type);
   function handleCardChange(e) {
-    setCard(e.target.value)
 
     if (e.target.value === "invitations") {
-      setTitle('Покани за гости')
+      setAlbum('invitations')
+      setAlbumName('Покани за гости')
     } else if (e.target.value === "tables") {
-      setTitle('Настанителни табели')
+      setAlbum('tables')
+      setAlbumName('Настанителни табели')
     } else {
-      setTitle('Картички с имена')
+      setAlbum('cards')
+      setAlbumName('Картички с имена')
     }
   }
   
@@ -33,20 +36,22 @@ const Add = () => {
 
   const handleUpload = async () => {
     const formData = new FormData();
-    formData.append("title", title);
+    formData.append("type", type);
+    formData.append("album", album);
+    formData.append("albumName", albumName);
     selectedFiles.forEach((file) => {
-      formData.append("images[]", file);
+      formData.append("file", file);
     });
 
     try {
-      await axios.post(`${BASE_URL}/upload/${card}`, formData, {
+      await axios.post(`${BASE_URL}/uploads/images/`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
 
       // clear the fields
-      setTitle("");
+      setAlbum("");
       setSelectedFiles([]);
       setShowMessage(true);
     } catch (error) {

@@ -43,7 +43,7 @@ const Navigation = () => {
           <li>
             <Link to="/catering">Кетъринг</Link>
           </li>
-          {user.email && (
+          {user?.email && (
             <li>
               <Link to="/api/logout">
                 <GrUserFemale />

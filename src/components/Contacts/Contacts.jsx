@@ -4,6 +4,8 @@ import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsPhone } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { sendEmail } from "../../services/emailService";
+
 
 const Contacts = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +14,7 @@ const Contacts = () => {
     message: "",
     attachments: [],
   });
+  const [text, setText] = useState(' ')
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -34,26 +37,28 @@ const Contacts = () => {
     for (let i = 0; i < formData.attachments.length; i++) {
       formDataToSend.append("attachments", formData.attachments[i]);
     }
-  
+
     try {
-      const response = await fetch("https://party-agency-nodejs.onrender.com/send-email", {
-        method: "POST",
-        body: formDataToSend,
-      });
-      if (response.ok) {
-        console.log("Email sent successfully!");
+      const response = await sendEmail(formData);
+      if (response.success) {
+        setText('Email sent successfully!');
         setFormData({
           name: "",
           email: "",
           message: "",
           attachments: [],
         });
+  
+        setTimeout(() => {
+          setText(' ');
+        }, 3000);
       } else {
         console.error("Failed to send email");
       }
     } catch (error) {
       console.error(error);
     }
+  
   };
 
   return (
@@ -128,14 +133,14 @@ const Contacts = () => {
               ></textarea>
             </div>
 
-            <div className="email__input">
+            {/* <div className="email__input">
               <label htmlFor="file-upload" className="custom-file-upload">
                 {" "}
                 Изберете файл:
               </label>
               <input id="file-upload" type="file" multiple />
-            </div>
-
+            </div> */}
+            {text &&             <p className="text_handler">{text}</p>}
             <button
               type="submit"
               className="email__btn"

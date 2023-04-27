@@ -21,6 +21,7 @@ li {
   display: flex;
   flex-direction: row;
   white-space: nowrap;
+  letter-spacing: 1.1px;
 }
 
 .nav__buttons li {

@@ -144,6 +144,12 @@ body {
   cursor: pointer;
 }
 
+.line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--clr-brown);
+}
+
 
 .loader {
   position: absolute;
@@ -151,6 +157,10 @@ body {
   left: 50%;
   transform: translate(-50%,-50%);
   font-size: 2rem;
+}
+
+.text_handler {
+  height: 1rem;
 }
 
 @media screen and (max-width: 1024px) {
@@ -164,4 +174,26 @@ body {
   .container {
     max-width: var(--container-width-sm);
   }
+
+  h1 {
+    font-size: 4rem;
+  }
+  
+  h2 {
+    font-size: 3rem;
+  }
+  
+  h3 {
+    font-size: 2rem;
+  }
+  
+  h4 {
+    font-size: 1rem;
+  }
+  
+  h5 {
+    font-size: 0.5rem;
+  }
+
+  
 }

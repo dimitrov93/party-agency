@@ -30,7 +30,7 @@ function App() {
         <Route path="/decoration" element={<Decoration />}></Route>
         <Route path="/decoration/:albumType" element={<Album />} />
         <Route path="/decoration/:albumType/add" element={<Add />} />
-        <Route path="/decoration/:albumType/:id/edit" element={<Edit />} />
+        <Route path="/decoration/:albumType/:location/edit" element={<Edit />} />
 
         <Route path="/api/login" element={<Login />}></Route>
         <Route path="/api/logout" element={<Logout />}></Route>
