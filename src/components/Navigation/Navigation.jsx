@@ -21,7 +21,7 @@ const Navigation = () => {
           <Link to="/decoration">Украса</Link>
           <Link to="/cards">Покани за гости</Link>
           {/* <Link to="/">Подаръци за гости</Link> */}
-          <Link to="/catering">Кетъринг</Link>
+          {/* <Link to="/catering">Кетъринг</Link> */}
           <Link to="/contacts">Контакти</Link>
         </div>
       </div>
@@ -40,9 +40,9 @@ const Navigation = () => {
           {/* <li>
             <Link to="/">Подаръци за гости</Link>
           </li> */}
-          <li>
+          {/* <li>
             <Link to="/catering">Кетъринг</Link>
-          </li>
+          </li> */}
           {user?.email && (
             <li>
               <Link to="/api/logout">
