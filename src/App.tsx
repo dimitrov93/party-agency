@@ -14,7 +14,7 @@ import AddCard from "./components/Cards/Add/Add";
 import Edit from "./components/Decoration/Edit/Edit";
 import NotFound from "./pages/NotFound";
 
-const App: React.FC = () => {
+function App() {
   return (
     <AuthProvider>
       <Navigation />
