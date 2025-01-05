@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="mt-auto">
       <ul className="permalinks">
         <li>
           <Link to={"/"}>Начало</Link>

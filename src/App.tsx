@@ -6,17 +6,19 @@ import { routes } from "./routes";
 
 function App() {
   return (
-    <AuthProvider>
-      <Navigation />
+    <div className="flex flex-col min-h-screen">
+      <AuthProvider>
+        <Navigation />
 
-      <Routes>
-        {routes.map((route, index) => (
-          <Route key={index} path={route.path} element={route.element} />
-        ))}
-      </Routes>
+        <Routes>
+          {routes.map((route, index) => (
+            <Route key={index} path={route.path} element={route.element} />
+          ))}
+        </Routes>
 
-      <Footer />
-    </AuthProvider>
+        <Footer />
+      </AuthProvider>
+    </div>
   );
 }
 
