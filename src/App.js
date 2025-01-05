@@ -12,6 +12,7 @@ import { AuthProvider } from "./context/AuthContext";
 import Add from "./components/Decoration/Add/Add";
 import AddCard from "./components/Cards/Add/Add";
 import Edit from "./components/Decoration/Edit/Edit";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -28,10 +29,15 @@ function App() {
         <Route path="/decoration" element={<Decoration />}></Route>
         <Route path="/decoration/:albumType" element={<Album />} />
         <Route path="/decoration/:albumType/add" element={<Add />} />
-        <Route path="/decoration/:albumType/:location/edit" element={<Edit />} />
+        <Route
+          path="/decoration/:albumType/:location/edit"
+          element={<Edit />}
+        />
 
         <Route path="/api/login" element={<Login />}></Route>
         <Route path="/api/logout" element={<Logout />}></Route>
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       <Footer />
