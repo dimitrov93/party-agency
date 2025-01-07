@@ -5,53 +5,54 @@ import { RxDropdownMenu } from "react-icons/rx";
 import { GrUserFemale } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
+import { NavLink } from "react-router";
 
 const Navigation = () => {
   const { user } = useAuthContext();
   return (
     <nav>
-      <Link to={"/"}>
+      <NavLink to={"/"}>
         <img src={logo} alt="" className="nav__logo" />
-      </Link>
+      </NavLink>
       <div className="drop__down">
         <button className="drop__btn">
           <RxDropdownMenu size={50} />
         </button>
         <div className="dropdown__content">
-          <Link to="/decoration">Украса</Link>
-          <Link to="/cards">Покани за гости</Link>
-          {/* <Link to="/">Подаръци за гости</Link> */}
-          <Link to="/catering">Кетъринг</Link>
-          <Link to="/contacts">Контакти</Link>
+          <NavLink to="/decoration">Украса</NavLink>
+          <NavLink to="/cards">Покани за гости</NavLink>
+          {/* <NavLink to="/">Подаръци за гости</NavLink> */}
+          {/* <NavLink to="/catering">Кетъринг</NavLink> */}
+          <NavLink to="/contacts">Контакти</NavLink>
         </div>
       </div>
 
       <div className="nav__buttons">
         <ul>
           <li>
-            <Link to={"/"}>Начало</Link>
+            <NavLink to={"/"}>Начало</NavLink>
           </li>
           <li>
-            <Link to="/decoration">Украса</Link>
+            <NavLink to="/decoration">Украса</NavLink>
           </li>
           <li>
-            <Link to="/cards">Покани за гости</Link>
+            <NavLink to="/cards">Покани за гости</NavLink>
           </li>
           {/* <li>
-            <Link to="/">Подаръци за гости</Link>
+            <NavLink to="/">Подаръци за гости</NavLink>
           </li> */}
-          <li>
-            <Link to="/catering">Кетъринг</Link>
-          </li>
+          {/* <li>
+            <NavLink to="/catering">Кетъринг</NavLink>
+          </li> */}
           {user?.email && (
             <li>
-              <Link to="/api/logout">
+              <NavLink to="/api/logout">
                 <GrUserFemale />
-              </Link>
+              </NavLink>
             </li>
           )}
           <li>
-            <Link to={"/contacts"}>Контакти</Link>
+            <NavLink to={"/contacts"}>Контакти</NavLink>
           </li>
         </ul>
       </div>

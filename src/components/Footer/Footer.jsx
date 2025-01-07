@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="mt-auto">
       <ul className="permalinks">
         <li>
           <Link to={"/"}>Начало</Link>
@@ -19,9 +19,9 @@ const Footer = () => {
         {/* <li>
             <Link to="/">Подаръци за гости</Link>
           </li> */}
-        <li>
+        {/* <li>
           <Link to="/catering">Кетъринг</Link>
-        </li>
+        </li> */}
         <li>
             <Link to={"/contacts"}>Контакти</Link>
           </li>
