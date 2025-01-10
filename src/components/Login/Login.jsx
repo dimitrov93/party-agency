@@ -3,7 +3,6 @@ import "./login.css";
 import * as authService from "../../services/authService";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import axios from "axios";
 
 const Login =  () => {
   const navigate = useNavigate();
