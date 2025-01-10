@@ -1,9 +1,7 @@
-import React from "react";
 import logo from "../../assets/logo.png";
 import "./navigation.css";
 import { RxDropdownMenu } from "react-icons/rx";
 import { GrUserFemale } from "react-icons/gr";
-import { Link } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 import { NavLink } from "react-router";
 
