@@ -25,8 +25,8 @@ jobs:
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.GIT_CPANEL_REACT_SERVER }}
-          username: ${{ secrets.GIT_CPANEL_REACT_USER }}
-          password: ${{ secrets.GIT_CPANEL_REACT_PWD }}
-          protocol: ${{ secrets.GIT_CPANEL_REACT_PROTOCOL }}
+          server: ${{ secrets.MAIN_SERVER }}
+          username: ${{ secrets.MAIN_USER }}
+          password: ${{ secrets.MAIN_PASSWORD }}
+          protocol: ${{ secrets.MAIN_PROTOCOL }}
           local-dir: ./build/

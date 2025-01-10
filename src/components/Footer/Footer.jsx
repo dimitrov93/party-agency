@@ -23,8 +23,8 @@ const Footer = () => {
           <Link to="/catering">Кетъринг</Link>
         </li>
         <li>
-            <Link to={"/contacts"}>Контакти</Link>
-          </li>
+          <Link to={"/contacts"}>Контакти</Link>
+        </li>
       </ul>
 
       <div className="footer__socials">
@@ -40,7 +40,9 @@ const Footer = () => {
       </div>
 
       <div className="footer__copyrights">
-        <small>&copy; All rights reserved. Made by Tsvetomir</small>
+        <small>
+          &copy; {new Date().getFullYear()} Fairy Tale. All rights reserved.
+        </small>
       </div>
     </footer>
   );
