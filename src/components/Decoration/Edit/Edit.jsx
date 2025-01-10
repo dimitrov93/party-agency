@@ -6,7 +6,7 @@ import './edit.css'
 
 const Edit = () => {
   const [title, setTitle] = useState("");
-    const { albumType, id } = useParams();
+    const { albumType } = useParams();
     const navigate = useNavigate()
     const location = useLocation();
     const decodedLocation = decodeURIComponent(location.pathname).split('/');
@@ -23,7 +23,7 @@ const Edit = () => {
       .then(res => {
         setTitle(res.data[0].folder)
       })
-    }, [])
+    }, [album, oldAlbumName, type])
     
     const onUpdate = (e) => {
         try {

@@ -6,7 +6,6 @@ import { AiOutlineFileAdd } from "react-icons/ai";
 import { Link, useLocation, useParams } from "react-router-dom";
 import axios from "axios";
 import { getAlbum } from "../../../services/decorationService";
-import * as request from "../../../services/requester";
 const Album = () => {
   const { user } = useAuthContext();
   const { pathname } = useLocation();

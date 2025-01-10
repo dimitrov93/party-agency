@@ -4,17 +4,6 @@ import * as authService from "../../services/authService";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
-import { BASE_URL } from "../../utils/apiConfig";
-
-const axiosInstance = axios.create({
-  headers: {
-    "Content-Type": "application/json",
-    'Allow-Control-Access-Policy': true,
-    'Access-Control-Allow-Credentials': true,
-  },
-    withCredentials: true
-});
-
 
 const Login =  () => {
   const navigate = useNavigate();
