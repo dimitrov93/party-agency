@@ -4,7 +4,11 @@ import * as authService from "../../services/authService";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
+<<<<<<< HEAD
 const Login = () => {
+=======
+const Login =  () => {
+>>>>>>> origin/main
   const navigate = useNavigate();
   const { userLogin } = useContext(AuthContext);
   const [error, setError] = useState();
