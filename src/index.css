@@ -2,11 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Neucha&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Marck+Script&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+@layer base {
+}
 
+@layer components {
+  .container {
+    @apply bg-transparent mt-2 mb-4 min-h-screen mx-auto max-w-container-sm md:max-w-container-md lg:max-w-container-lg;
+  }
+  .trans-03 {
+    @apply transition-all duration-300 ease-in-out;
+  }
+}
 
 :root {
   --clr-brown: #d0a977;
@@ -89,20 +99,20 @@ h5 {
 /* Set default font and background color */
 body {
   min-height: 100vh;
-  background: url('./assets/background.jpg');
+  background: url("./assets/background.jpg");
   /* background-color: #f3f3f3; */
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.container {
+/* .container {
   max-width: var(--container-width-lg);
   background-color: transparent;
   margin: 0 auto;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
   min-height: 100vh;
-}
+} */
 
 .btn {
   width: max-content;
@@ -155,12 +165,11 @@ body {
   background-color: var(--clr-brown);
 }
 
-
 .loader {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   font-size: 2rem;
 }
 
@@ -169,36 +178,33 @@ body {
 }
 
 @media screen and (max-width: 1024px) {
-  .container {
+  /* .container {
     max-width: var(--container-width-md);
-  }
+  } */
 }
 
-
 @media screen and (max-width: 600px) {
-  .container {
+  /* .container {
     max-width: var(--container-width-sm);
-  }
+  } */
 
   h1 {
     font-size: 4rem;
   }
-  
+
   h2 {
     font-size: 3rem;
   }
-  
+
   h3 {
     font-size: 2rem;
   }
-  
+
   h4 {
     font-size: 1rem;
   }
-  
+
   h5 {
     font-size: 0.5rem;
   }
-
-  
 }
