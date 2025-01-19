@@ -7,6 +7,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Marck+Script&display=swap");
 
 @layer base {
+  h1 {
+    @apply font-parisienne text-4xl font-bold;
+  }
+
+  h2,
+  h3 {
+    @apply font-marck text-3xl text-center;
+  }
+
+  
 }
 
 @layer components {
@@ -15,6 +25,14 @@
   }
   .trans-03 {
     @apply transition-all duration-300 ease-in-out;
+  }
+
+  .trans-05 {
+    @apply transition-all duration-500 ease-in-out;
+  }
+
+  .home_logo {
+    @apply cursor-pointer w-full h-auto rounded-2xl trans-05 hover:rotate-0;
   }
 }
 
