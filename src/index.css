@@ -16,7 +16,21 @@
     @apply font-marck text-3xl text-center;
   }
 
-  
+  h1 {
+    @apply text-5xl sm:text-7xl;
+  }
+  h2 {
+    @apply text-3xl sm:text-6xl;
+  }
+  h3 {
+    @apply text-2xl sm:text-5xl;
+  }
+  h4 {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl;
+  }
+  h5 {
+    @apply text-base sm:text-lg md:text-xl lg:text-2xl;
+  }
 }
 
 @layer components {
@@ -94,7 +108,7 @@ textarea {
   /* 2 */
 }
 
-h1 {
+/* h1 {
   font-size: 5rem;
 }
 
@@ -112,7 +126,7 @@ h4 {
 
 h5 {
   font-size: 1rem;
-}
+} */
 
 /* Set default font and background color */
 body {
@@ -206,7 +220,7 @@ body {
     max-width: var(--container-width-sm);
   } */
 
-  h1 {
+  /* h1 {
     font-size: 4rem;
   }
 
@@ -224,5 +238,5 @@ body {
 
   h5 {
     font-size: 0.5rem;
-  }
+  } */
 }

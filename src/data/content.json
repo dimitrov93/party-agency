@@ -1,0 +1,52 @@
+{
+  "bg": {
+    "home": {
+      "sections": [
+        {
+          "id": 1,
+          "title": "Добре дошли!",
+          "subtitle": "Ние сме тук да сбъднем Вашия мечтан празник!",
+          "image": "pic1"
+        },
+        {
+          "id": 2,
+          "subtitle": "Направете всеки Ваш спомен красив!",
+          "image": "pic2"
+        },
+        {
+          "id": 3,
+          "subtitle": "Нека напишем вашата незабравима приказка заедно!",
+          "image": "pic3"
+        }
+      ]
+    },
+    "about": {},
+    "services": {},
+    "contact": {}
+  },
+  "en": {
+    "home": {
+      "sections": [
+        {
+          "id": 1,
+          "title": "Welcome!",
+          "subtitle": "We are here to make your dream celebration come true!",
+          "image": "pic1"
+        },
+        {
+          "id": 2,
+          "subtitle": "Make every memory beautiful!",
+          "image": "pic2"
+        },
+        {
+          "id": 3,
+          "subtitle": "Let's write your unforgettable story together!",
+          "image": "pic3"
+        }
+      ]
+    },
+    "about": {},
+    "services": {},
+    "contact": {}
+  }
+}

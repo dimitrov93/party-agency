@@ -1,9 +1,15 @@
 import React from "react";
 import { PAGE_NAME } from "../../utils/consts";
 
-export default function Title() {
+export interface TitleProps {
+  className?: string;
+}
+
+export default function Title({ className }: TitleProps) {
   return (
-    <h1 className="text-center text-clr-brown text-4xl md:text-5xl lg:text-[5.5rem] font-bold text-shadow">
+    <h1
+      className={`${className} text-center text-clr-brown font-bold text-shadow`}
+    >
       {PAGE_NAME}
     </h1>
   );
