@@ -1,9 +1,9 @@
 import React from "react";
-import pic1 from "../../assets/pic1.jpg";
-import pic2 from "../../assets/pic2.jpg";
-import pic3 from "../../assets/pic3.jpg";
-import Title from "../UI/Title";
-import content from "../../data/content.json";
+import pic1 from "../assets/pic1.jpg";
+import pic2 from "../assets/pic2.jpg";
+import pic3 from "../assets/pic3.jpg";
+import Title from "../components/UI/Title";
+import content from "../data/content.json";
 
 interface ImageMap {
   [key: string]: string;
@@ -27,7 +27,7 @@ const HomeSection: React.FC<{
 
   return (
     <div
-      className={`flex ${flexDirection} items-center justify-center ${animationClass} mb-4`}
+      className={`flex ${flexDirection} items-center justify-center ${animationClass} last:mb-6`}
     >
       <div className="max-w-60 sm:max-w-[35%] aspect-square">
         <img

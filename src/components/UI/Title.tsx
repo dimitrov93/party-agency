@@ -1,5 +1,4 @@
-import React from "react";
-import { PAGE_NAME } from "../../utils/consts";
+import { PAGE_NAME } from "../../data/consts";
 
 export interface TitleProps {
   className?: string;

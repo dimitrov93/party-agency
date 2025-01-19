@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import Home from "./components/Home/Home";
+import Home from "./pages/Home";
 
 const Contacts = lazy(() => import("./components/Contacts/Contacts"));
 const Decoration = lazy(() => import("./components/Decoration/Decoration"));
