@@ -27,19 +27,17 @@ const HomeSection: React.FC<{
 
   return (
     <div
-      className={`flex ${flexDirection} items-center justify-center ${animationClass} last:mb-6`}
+      className={`flex ${flexDirection} justify-center  items-center ${animationClass} last:mb-6 gap-4`}
     >
-      <div className="max-w-60 sm:max-w-[35%] aspect-square">
-        <img
-          src={imageMap[image]}
-          alt=""
-          className={`home_logo ${imageRotation || ""} ${
-            isReverse ? "mb-8" : "mt-8"
-          }`}
-          loading="lazy"
-        />
-      </div>
-      <div className="flex flex-col gap-4 sm:gap-2 md:gap:6 lg:gap-8 p-4">
+      <img
+        src={imageMap[image]}
+        alt=""
+        className={`home_logo max-w-[50%] sm:max-w-[35%]  aspect-square ${
+          imageRotation || ""
+        } ${isReverse ? "mb-8" : ""}`}
+        loading="lazy"
+      />
+      <div className="flex flex-col gap- sm:gap-2 md:gap:6 lg:gap-8">
         {title && <h2>{title}</h2>}
         <h3>{subtitle}</h3>
       </div>
@@ -47,7 +45,7 @@ const HomeSection: React.FC<{
   );
 };
 
-const Home: React.FC<{ language?: 'bg' | 'en' }> = ({ language = 'bg' }) => {
+const Home: React.FC<{ language?: "bg" | "en" }> = ({ language = "bg" }) => {
   const animations = [
     "animate-slide-from-left",
     "animate-slide-from-right",
@@ -55,11 +53,11 @@ const Home: React.FC<{ language?: 'bg' | 'en' }> = ({ language = 'bg' }) => {
   ];
 
   const rotations = ["rotate-1", "-rotate-1", "rotate-12"];
-  
+
   const homeContent = content[language].home;
 
   return (
-    <div className="container">
+    <div className="container flex flex-col gap-6">
       <Title />
       {homeContent.sections.map((section, index) => (
         <HomeSection
