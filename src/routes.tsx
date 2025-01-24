@@ -2,8 +2,8 @@ import { lazy } from "react";
 import Home from "./pages/Home";
 
 const Contacts = lazy(() => import("./components/Contacts/Contacts"));
-const Decoration = lazy(() => import("./components/Decoration/Decoration"));
-const Album = lazy(() => import("./components/Decoration/Album/Album"));
+const Decoration = lazy(() => import("./pages/Decoration"));
+const Album = lazy(() => import("./components/Sections/Album/Album"));
 const Add = lazy(() => import("./components/Decoration/Add/Add"));
 const Edit = lazy(() => import("./components/Decoration/Edit/Edit"));
 const Card = lazy(() => import("./components/Cards/Card"));

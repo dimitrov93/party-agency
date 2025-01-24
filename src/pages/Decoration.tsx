@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import DecorationCard from "./DecorationCard";
-import { decorationCards } from "../../data/constants";
+import { decorationCards } from "../data/constants";
+import DecorationCard from "../components/Sections/Decoration/DecorationCard";
 
 const Decoration: React.FC = () => {
   const memoizedCards = useMemo(
