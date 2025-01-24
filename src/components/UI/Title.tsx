@@ -1,4 +1,4 @@
-import { PAGE_NAME } from "../../data/consts";
+import { PAGE_NAME } from "../../data/constants";
 
 export interface TitleProps {
   className?: string;

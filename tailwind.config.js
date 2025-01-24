@@ -17,7 +17,7 @@ module.exports = {
       },
       colors: {
         "clr-brown": "#d0a977",
-        "clr-ligter-brown": "#e3c7a2",
+        "clr-ligter-brown": "#e5ceaf",
       },
       maxWidth: {
         "container-lg": "75%",

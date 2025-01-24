@@ -1,8 +1,9 @@
 import { Routes, Route } from "react-router-dom";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/Layout/Footer/Footer";
 import { AuthProvider } from "./context/AuthContext";
-import Navigation from "./components/Navigation/Navigation";
 import { routes } from "./routes";
+import Navigation from "./components/Layout/Navigation/Navigation";
+
 
 const App: React.FC = () => {
   return (

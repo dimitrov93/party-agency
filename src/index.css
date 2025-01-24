@@ -48,11 +48,19 @@
   .home_logo {
     @apply cursor-pointer w-full h-auto rounded-2xl trans-05 hover:rotate-0;
   }
+
+  .border-bottom {
+    @apply border-b-[1px] border-solid border-clr-brown;
+  }
+
+  .navigation {
+    @apply flex justify-around h-28 border-bottom items-center static top-0 left-0 z-50 w-full font-medium;
+  }
 }
 
 :root {
   --clr-brown: #d0a977;
-  --clr-ligter-brown: #e3c7a2;
+  --clr-ligter-brown: #e5ceaf;
 
   --trans: all 400ms ease;
 
