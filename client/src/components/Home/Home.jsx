@@ -7,7 +7,7 @@ import pic3 from "../../assets/pic3.jpg";
 const Home = () => {
   return (
     <div className="container">
-      <h1 className=”home__title”>Party agency &ldquo;Fairy tale&rdquo; - test</h1>
+      <h1 className="home__title">Party agency &ldquo;Fairy tale&rdquo; - test</h1>
       <article className="article">
         <div className="article__left slide-in-left">
           <img src={pic1} alt="" className="article__logo left" />
