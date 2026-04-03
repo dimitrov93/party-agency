@@ -18,6 +18,7 @@ jobs:
           node-version: '16'
 
       - name: 🛠 Build Project
+        working-directory: ./client
         run: |
           npm install
           npm run build
@@ -29,4 +30,4 @@ jobs:
           username: ${{ secrets.MAIN_USER }}
           password: ${{ secrets.MAIN_PASSWORD }}
           protocol: ${{ secrets.MAIN_PROTOCOL }}
-          local-dir: ./build/
+          local-dir: ./client/build/
