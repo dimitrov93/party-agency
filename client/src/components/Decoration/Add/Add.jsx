@@ -23,21 +23,20 @@ const Add = () => {
   };
 
   const handleUpload = async () => {
-    const formData = new FormData();
-    formData.append("type", type);
-    formData.append("album", album);
-    formData.append("albumName", albumName);
-
-    selectedFiles.forEach((file) => {
-      formData.append("file", file);
-    });
-
     try {
-      await axios.post(`${BASE_URL}/uploads/images/`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      // One file per request: the API runs on Vercel, which caps request bodies at 4.5 MB.
+      for (const file of selectedFiles) {
+        const formData = new FormData();
+        formData.append("type", type);
+        formData.append("album", album);
+        formData.append("albumName", albumName);
+        formData.append("file", file);
+        await axios.post(`${BASE_URL}/uploads/images/`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        });
+      }
 
       // clear the fields
       setAlbumName("");
