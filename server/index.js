@@ -45,6 +45,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/", require("./routes/migrate"));
 
 // app.use(auth)
 app.use("/", emailRoutes);
@@ -53,4 +54,8 @@ app.use("/api/images", imagesRouter);
 app.use("/uploads/images", uploadRoutes);
 
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+}
+
+module.exports = app;
