@@ -1,201 +1,181 @@
 const express = require("express");
 const multer = require("multer");
-const fs = require("fs");
-const path = require("path");
+const { put, list, del, copy } = require("@vercel/blob");
+
 const router = express.Router();
-require('dotenv').config();
-const apiUrl = process.env.NODE_ENV === 'production' ? process.env.PRODUCTION_URL : process.env.LOCAL_URL;
+require("dotenv").config();
 
+const apiUrl =
+  process.env.NODE_ENV === "production"
+    ? process.env.PRODUCTION_URL
+    : process.env.LOCAL_URL;
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const type = req.body.type; // main folder in images
-    const album = req.body.album; // the name of the main album
-    const albumName = req.body.albumName; // albums that will be created in the album
-    const directoryPath = path.join(
-      __dirname,
-      "../uploads",
-      "images",
-      type,
-      album,
-      albumName
-    );
-    // create the directory if it doesn't exist
-    fs.mkdirSync(directoryPath, { recursive: true });
-    cb(null, directoryPath);
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
+// Files are kept in Vercel Blob under images/<type>/<album>/<albumName>/<file>,
+// mirroring the old uploads/images folder layout on disk.
+const ROOT = "images";
+
+// Vercel Functions accept request bodies up to 4.5 MB.
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 4 * 1024 * 1024 },
 });
 
-const upload = multer({ storage });
+const joinPath = (...parts) => parts.filter(Boolean).join("/");
 
-// folder by name
-// router.get("/:type/:albumName/:folderName", async (req, res) => {
-//   console.log('tuk');
-//   const albumName = req.params.albumName;
-//   const type = req.params.type;
-//   const folderName = req.params.folderName;
+async function listAll(prefix) {
+  const blobs = [];
+  let cursor;
+  do {
+    const res = await list({ prefix, cursor, limit: 1000 });
+    blobs.push(...res.blobs);
+    cursor = res.hasMore ? res.cursor : undefined;
+  } while (cursor);
+  return blobs;
+}
 
-//   const directoryPath = path.join(
-//     __dirname,
-//     "..",
-//     "uploads",
-//     "images",
-//     type,
-//     albumName,
-//     folderName // Add the folder name to the directory path
-//   );
-//   const albums = [];
+// Group blobs that sit directly inside a folder under `prefix`.
+function groupByFolder(blobs, prefix) {
+  const folders = new Map();
+  for (const blob of blobs) {
+    const rest = blob.pathname.slice(prefix.length);
+    const parts = rest.split("/");
+    if (parts.length !== 2 || !parts[1]) continue;
+    const [folder] = parts;
+    if (!folders.has(folder)) folders.set(folder, []);
+    folders.get(folder).push(blob);
+  }
+  return folders;
+}
 
-//   try {
-//     const albumPath = path.join(directoryPath);
-//     const stat = await fs.promises.lstat(albumPath);
-//     let images = [];
-//     if (stat.isDirectory()) {
-//       const imageNames = await fs.promises.readdir(albumPath);
-//       images = imageNames.map((imageName) => ({
-//         url: `${apiUrl}/uploads/images/${type}/${albumName}/${folderName}/${imageName}`,
-//       }));
-//     }
-//     const location = `${apiUrl}/uploads/images/${type}/${albumName}/${folderName}`;
-//     albums.push({ folder:folderName, location, images, created: stat.birthtime });
+function toAlbum(folder, blobs, location) {
+  const created = new Date(
+    Math.min(...blobs.map((b) => new Date(b.uploadedAt).getTime()))
+  );
+  return {
+    folder,
+    location,
+    images: blobs.map((b) => ({ url: b.url })),
+    created,
+  };
+}
 
-//     res.status(200).json(albums);
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).send({ message: "Error getting album from directory" });
-//   }
-// });
-
-// all folders
-router.get("/:type/:albumName?", async (req, res) => {
-  const albumName = req.params.albumName;
-  const type = req.params.type;
-  const directoryPath = albumName
-    ? path.join(__dirname, "..", "uploads", "images", type, albumName)
-    : path.join(__dirname, "..", "uploads", "images", type);
-  const albums = [];
-
+// single folder: /uploads/images/:type/:album/:albumName
+router.get("/:type/:album/:albumName", async (req, res) => {
+  const { type, album, albumName } = req.params;
+  const prefix = joinPath(ROOT, type, album) + "/";
   try {
-    const albumNames = await fs.promises.readdir(directoryPath);
+    const blobs = await listAll(joinPath(ROOT, type, album, albumName) + "/");
+    const folders = groupByFolder(blobs, prefix);
+    const files = folders.get(albumName) || [];
+    if (!files.length) return res.status(200).json([]);
+    res
+      .status(200)
+      .json([
+        toAlbum(
+          albumName,
+          files,
+          `${apiUrl}/uploads/images/${type}/${album}/${albumName}`
+        ),
+      ]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ message: "Error getting album" });
+  }
+});
 
-    for (const album of albumNames) {
-      const albumPath = path.join(directoryPath, album);
-      const stat = await fs.promises.lstat(albumPath);
-      let images = [];
-      if (stat.isDirectory()) {
-        const imageNames = await fs.promises.readdir(albumPath);
-
-        images = imageNames.map((imageName) => ({
-          url: albumName
-            ? `${apiUrl}/uploads/images/${type}/${albumName}/${album}/${imageName}`
-            : `${apiUrl}/uploads/images/${type}/${album}/${imageName}`,
-        }));
-      }
-      const location = albumName
-        ? `${apiUrl}/uploads/images/${type}/${albumName}/${album}`
-        : `${apiUrl}/uploads/images/${album}`;
-
-      albums.push({ folder: album, location, images, created: stat.birthtime });
-    }
-
-    // Sort albums by date of creation
+// all folders: /uploads/images/:type/:albumName?
+router.get("/:type/:albumName?", async (req, res) => {
+  const { type, albumName } = req.params;
+  const prefix = joinPath(ROOT, type, albumName) + "/";
+  try {
+    const blobs = await listAll(prefix);
+    const folders = groupByFolder(blobs, prefix);
+    const albums = [...folders.entries()].map(([folder, files]) =>
+      toAlbum(
+        folder,
+        files,
+        albumName
+          ? `${apiUrl}/uploads/images/${type}/${albumName}/${folder}`
+          : `${apiUrl}/uploads/images/${folder}`
+      )
+    );
     albums.sort((a, b) => b.created - a.created);
-
     res.status(200).json(albums);
   } catch (err) {
     console.error(err);
-    res.status(500).send({ message: "Error getting albums from directory" });
+    res.status(500).send({ message: "Error getting albums" });
   }
 });
 
-
-router.post("/", upload.array("file", 20), (req, res) => {
-  const files = req.files.map((file) => ({
-    filename: file.filename,
-    path: `${apiUrl}/uploads/images/${req.body.album}/${req.body.albumName}/${file.filename}`,
-  }));
-  res.send(files);
+router.post("/", upload.array("file", 20), async (req, res) => {
+  const { type, album, albumName } = req.body;
+  try {
+    const files = await Promise.all(
+      (req.files || []).map(async (file) => {
+        const blob = await put(
+          joinPath(ROOT, type, album, albumName, file.originalname),
+          file.buffer,
+          {
+            access: "public",
+            addRandomSuffix: false,
+            allowOverwrite: true,
+            contentType: file.mimetype,
+          }
+        );
+        return { filename: file.originalname, path: blob.url };
+      })
+    );
+    res.send(files);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ message: "Error uploading files" });
+  }
 });
 
-// delete
-router.delete("/:type/:album/:albumName", (req, res) => {
-  const type = req.params.type; // main folder in images
-  const album = req.params.album; // the name of the main album
-  const albumName = req.params.albumName; // albums that will be created in the album
-  console.log(type);
-  const directoryPath = path.join(
-    __dirname,
-    "..",
-    "uploads",
-    "images",
-    type,
-    album,
-    albumName
-  );
-
-  fs.rm(directoryPath, { recursive: true }, (err) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send({ message: "Error deleting folder" });
-    } else {
-      console.log(`Folder ${directoryPath} deleted successfully`);
-      res.status(200).send({ message: "Folder deleted successfully" });
+// delete a folder
+router.delete("/:type/:album/:albumName", async (req, res) => {
+  const { type, album, albumName } = req.params;
+  try {
+    const blobs = await listAll(joinPath(ROOT, type, album, albumName) + "/");
+    for (let i = 0; i < blobs.length; i += 100) {
+      await del(blobs.slice(i, i + 100).map((b) => b.url));
     }
-  });
+    res.status(200).send({ message: "Folder deleted successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ message: "Error deleting folder" });
+  }
 });
 
-router.put("/:type/:album/:oldAlbumName", (req, res) => {
-  const type = req.params.type;
-  const album = req.params.album;
-  const oldAlbumName = req.params.oldAlbumName;
-  const newAlbumName = req.body.newAlbumName;
-  const directoryPath = path.join(__dirname, "..", "uploads", "images", type, album);
-  const oldFolderPath = path.join(directoryPath, oldAlbumName);
-  const newFolderPath = path.join(directoryPath, newAlbumName);
-
-  // create new folder with the new name
-  fs.mkdir(newFolderPath, (err) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send({ message: "Error renaming folder" });
-    } else {
-      console.log(`Folder ${newFolderPath} created`);
-
-      // copy all files and subdirectories from old folder to new folder
-      copyFolderRecursiveSync(oldFolderPath, newFolderPath);
-
-      // delete old folder
-      fs.rm(oldFolderPath, { recursive: true }, (err) => {
-        if (err) {
-          console.error(err);
-          res.status(500).send({ message: "Error renaming folder" });
-        } else {
-          console.log(`Folder ${oldFolderPath} renamed to ${newFolderPath}`);
-          res.status(200).send({ message: "Folder renamed successfully" });
-        }
+// rename a folder
+router.put("/:type/:album/:oldAlbumName", async (req, res) => {
+  const { type, album, oldAlbumName } = req.params;
+  const { newAlbumName } = req.body;
+  const oldPrefix = joinPath(ROOT, type, album, oldAlbumName) + "/";
+  const newPrefix = joinPath(ROOT, type, album, newAlbumName) + "/";
+  try {
+    if (!newAlbumName) {
+      return res.status(400).send({ message: "Missing new album name" });
+    }
+    const existing = await list({ prefix: newPrefix, limit: 1 });
+    if (existing.blobs.length) {
+      return res.status(500).send({ message: "Error renaming folder" });
+    }
+    const blobs = await listAll(oldPrefix);
+    for (const blob of blobs) {
+      await copy(blob.url, newPrefix + blob.pathname.slice(oldPrefix.length), {
+        access: "public",
+        addRandomSuffix: false,
       });
     }
-  });
-});
-
-// recursive function to copy all files and subdirectories from one folder to another
-function copyFolderRecursiveSync(source, target) {
-  if (!fs.existsSync(target)) {
-    fs.mkdirSync(target);
-  }
-
-  fs.readdirSync(source).forEach(function (file) {
-    const curSource = path.join(source, file);
-    const curTarget = path.join(target, file);
-    if (fs.lstatSync(curSource).isDirectory()) {
-      copyFolderRecursiveSync(curSource, curTarget);
-    } else {
-      fs.copyFileSync(curSource, curTarget);
+    for (let i = 0; i < blobs.length; i += 100) {
+      await del(blobs.slice(i, i + 100).map((b) => b.url));
     }
-  });
-}
+    res.status(200).send({ message: "Folder renamed successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ message: "Error renaming folder" });
+  }
+});
 
 module.exports = router;
