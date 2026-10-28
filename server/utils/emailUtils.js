@@ -1,21 +1,10 @@
 const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    const dir = path.join(__dirname, '..', '..', 'uploads');
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir);
-    }
-    cb(null, dir);
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  },
+// Attachments are kept in memory: Vercel Functions have no persistent disk.
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 4 * 1024 * 1024 },
 });
-
-const upload = multer({ storage: storage });
 
 const prepareAttachments = (req) => {
   const attachments = [];
@@ -23,7 +12,8 @@ const prepareAttachments = (req) => {
     req.files.forEach((file) => {
       attachments.push({
         filename: file.originalname,
-        path: file.path,
+        content: file.buffer,
+        contentType: file.mimetype,
       });
     });
   }
